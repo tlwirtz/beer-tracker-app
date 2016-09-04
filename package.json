@@ -1,0 +1,30 @@
+{
+  "name": "beer-tracker-app",
+  "version": "0.0.1",
+  "description": "Front End Client for the Beer Tracker API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tlwirtz/beer-tracker-app.git"
+  },
+  "author": "taylorw@greysky.io",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tlwirtz/beer-tracker-app/issues"
+  },
+  "homepage": "https://github.com/tlwirtz/beer-tracker-app#readme",
+  "dependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "redux": "^3.5.2",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.1"
+  }
+}
