@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './source/entry.js',
   output: {
-    path: './build/',
-    filename: 'index.js'
+    path: './build',
+    filename: 'build.js'
   },
   devServer: {
     inline: true,
