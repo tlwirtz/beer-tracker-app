@@ -8,5 +8,4 @@
  * As a user I want to add or remove beers so that I can expand my selection of drinks.
  * As a dev I want to use Redux so the current state of my application is easily reasoned about
  * As a dev I want to use React so that my UI is built out of easily reusable pieces.
-
  
