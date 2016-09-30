@@ -2,6 +2,7 @@
 
 const path = require('path')
 const webpack = require('webpack')
+const ExtractText = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -12,7 +13,8 @@ module.exports = {
     publicPath: '/static/'
   },
   plugins: [
-    new webpack.optimize.OccurencePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new ExtractText('bundle.css'),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': '\'production\''
@@ -25,6 +27,7 @@ module.exports = {
     })
   ],
   module:{
+    loaders: [
     {
       test: /\.js$/,
       loaders: ['babel'],
@@ -34,6 +37,6 @@ module.exports = {
       test: /\.scss$/,
       loader: ExtractText.extract('style', 'css!postcss!sass!')
     }
+  ]
   }
-
 }

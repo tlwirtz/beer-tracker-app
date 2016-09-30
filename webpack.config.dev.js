@@ -17,6 +17,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new ExtractText('bundle.css'),
     new webpack.NoErrorsPlugin()
   ],
   module: {
