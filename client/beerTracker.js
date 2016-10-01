@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
+import 'babel-polyfill'
 import store, { history } from './store'
 import App from './components/App'
 
@@ -10,7 +11,7 @@ const BeerList = React.createClass({
   render() {
     return (
       <div>
-        {this.props.beers.map((beer) => <p key={beer.id}>{beer.name} -- {beer.id}</p>)}
+        {this.props.beers.items.map((beer) => <p key={beer.id}>{beer.name} -- {beer.id}</p>)}
       </div>
     )
   }
