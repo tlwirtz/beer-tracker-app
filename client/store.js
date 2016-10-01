@@ -5,6 +5,7 @@ import { browserHistory } from 'react-router'
 import rootReducer from './reducers/index';
 
 const defaultState = {
+  fetchingBeers: false,
   beers: [
     {
       name: 'beer one',
