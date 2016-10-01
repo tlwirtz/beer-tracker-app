@@ -4,17 +4,20 @@ import { browserHistory } from 'react-router'
 import thunkMiddleware from 'redux-thunk'
 import rootReducer from './reducers/index';
 
+//TODO -- JUST FOR TESTING
+import { fetchBeers } from './actions/actionCreators'
+
 const defaultState = {
     beers: {
       fetchingBeers: false,
       items: [
       {
         name: 'beer one',
-        id: 120921391098123
+        _id: 120921391098123
       },
       {
         name: 'beer two',
-        id: 19083029840
+        _id: 19083029840
       }
     ]
   }
@@ -22,11 +25,16 @@ const defaultState = {
 
 const middleware = applyMiddleware(thunkMiddleware)
 const enhancers = compose (
+  middleware,
   window.devToolsExtension ? window.devToolsExtension() : (f) => f,
-  middleware
 )
 
 const store = createStore(rootReducer, defaultState, enhancers)
+
+store.dispatch(fetchBeers()).then(() =>
+  console.log('store', store.getState())
+)
+
 export const history = syncHistoryWithStore(browserHistory, store)
 
 if (module.hot) {

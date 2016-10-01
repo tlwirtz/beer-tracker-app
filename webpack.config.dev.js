@@ -18,7 +18,8 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new ExtractText('bundle.css'),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({'process.env.BEER_TRACKER_API': '"https://beer-tracker-api.herokuapp.com"'})
   ],
   module: {
     loaders: [

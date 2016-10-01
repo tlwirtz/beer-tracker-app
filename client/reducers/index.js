@@ -7,7 +7,7 @@ const beers = (state = {}, action) => {
     case FETCH_BEER_LIST:
     case FETCH_BEER_LIST_FAILURE:
     case FETCH_BEER_LIST_SUCCESS:
-      return state
+      return Object.assign({}, state, {items: action.beers})
     default:
       return state
 

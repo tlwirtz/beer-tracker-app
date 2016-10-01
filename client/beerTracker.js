@@ -11,7 +11,7 @@ const BeerList = React.createClass({
   render() {
     return (
       <div>
-        {this.props.beers.items.map((beer) => <p key={beer.id}>{beer.name} -- {beer.id}</p>)}
+        {this.props.beers.items.map((beer) => <p key={beer._id}>{beer.name} -- {beer._id}</p>)}
       </div>
     )
   }

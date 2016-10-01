@@ -19,12 +19,13 @@ export const fetchBeerList = () => (
   }
 )
 
-export const fetchBeerListSuccess = (res) => (
-  {
+export const fetchBeerListSuccess = (beers) => {
+  console.log('beer success', beers)
+  return {
     type: FETCH_BEER_LIST_SUCCESS,
-    beers: res.body
+    beers
   }
-)
+}
 
 export const fetchBeerListFailure = (err) => (
   {
@@ -36,7 +37,7 @@ export const fetchBeerListFailure = (err) => (
 export const fetchBeers = () => (
   (dispatch) => {
     dispatch(fetchBeerList())
-    return fetch(`${process.env.BEER_TRACKER_API}/beers`)
+    return fetch(`${process.env.BEER_TRACKER_API}/api/beer`)
     .then((response) => response.json())
     .then((json) => dispatch(fetchBeerListSuccess(json)))
     .catch((err) => dispatch(fetchBeerListFailure(err)))
