@@ -4,9 +4,6 @@ import { browserHistory } from 'react-router'
 import thunkMiddleware from 'redux-thunk'
 import rootReducer from './reducers/index';
 
-//TODO -- JUST FOR TESTING
-import { fetchBeers } from './actions/actionCreators'
-
 const defaultState = {
     beers: {
       fetchingBeers: false,
@@ -30,11 +27,6 @@ const enhancers = compose (
 )
 
 const store = createStore(rootReducer, defaultState, enhancers)
-
-store.dispatch(fetchBeers()).then(() =>
-  console.log('store', store.getState())
-)
-
 export const history = syncHistoryWithStore(browserHistory, store)
 
 if (module.hot) {
