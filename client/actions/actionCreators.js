@@ -2,9 +2,17 @@ import fetch from 'isomorphic-fetch'
 
 
 export const ADD_BEER = 'ADD_BEER'
+export const SELECT_BEER = 'SELECT_BEER'
 export const FETCH_BEER_LIST = 'FETCH_BEER_LIST'
 export const FETCH_BEER_LIST_SUCCESS = 'FETCH_BEER_LIST_SUCCESS'
 export const FETCH_BEER_LIST_FAILURE = 'FETCH_BEER_LIST_FAILURE'
+
+export const selectBeer = (beer) => (
+  {
+    type: SELECT_BEER,
+    beer
+  }
+)
 
 export const addBeer = (beer) => (
   {

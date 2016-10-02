@@ -5,7 +5,11 @@ import Heading from 'grommet/components/Heading';
 import React from 'react';
 import { Link } from 'react-router';
 
-const Main = React.createClass({
+class Main extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  
   render() {
     return (
       <App>
@@ -16,6 +20,6 @@ const Main = React.createClass({
       </App>
     )
   }
-});
+}
 
 export default Main
