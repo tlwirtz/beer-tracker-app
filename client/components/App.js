@@ -5,7 +5,7 @@ import Main from './Main'
 
 function mapStateToProps(state) {
   return {
-    beers: state.beers
+    beers: state.beers.toJS()
   }
 }
 
