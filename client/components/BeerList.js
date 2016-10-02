@@ -5,10 +5,12 @@ const BeerList = React.createClass({
   render() {
     return (
       <div>
+        <ul>
         { this.props.beers.fetchingBeers ?
-          <p>Loading Beers</p> :
+          <li>Loading Beers</li> :
           this.props.beers.items.map((beer) => <BeerSingle key={beer._id} beer={beer} />)
         }
+        </ul>
       </div>
     )
   }
