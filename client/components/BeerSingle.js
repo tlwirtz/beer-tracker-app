@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 
 class BeerSingle extends React.Component {
   constructor(props) {
@@ -21,13 +22,18 @@ class BeerSingle extends React.Component {
   }
   render() {
     const { beer, beers } = this.props
+    let classes = classNames({
+      'beerSingle': true,
+      'hovering': this.state.hovering,
+      'beerSingleSelected': beers.selectedBeer === beer._id
+    })
+
     return (
       <div onClick={this.beerClick}
           onMouseEnter={this.onMouseEnterHandle}
           onMouseLeave={this.onMouseLeaveHandle}
+          className={classes}
           >
-
-        { this.state.hovering ? <h1>HOVERING</h1> : null }
         <h2>{this.props.beer.name} </h2>
         <p>{this.props.beer._id}</p>
       </div>
