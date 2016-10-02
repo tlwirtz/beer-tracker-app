@@ -1,0 +1,20 @@
+@import "theme";
+
+ul {
+  list-style: none;
+}
+
+.beerSingle {
+  padding: 1em;
+  margin: 1em;
+  border: solid thin $brand-grey-colors-1;
+}
+
+.hovering {
+  border: solid thin $brand-color-darker;
+}
+
+.beerSingleSelected {
+  border: solid thin $brand-color-darker;
+  color: $brand-color-darker;
+}

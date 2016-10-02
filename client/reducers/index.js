@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import Immutable from 'immutable'
 
-import { FETCH_BEER_LIST, FETCH_BEER_LIST_FAILURE, FETCH_BEER_LIST_SUCCESS } from '../actions/actionCreators'
+import { SELECT_BEER, FETCH_BEER_LIST, FETCH_BEER_LIST_FAILURE, FETCH_BEER_LIST_SUCCESS } from '../actions/actionCreators'
 
 const updateBeerList = (state, beers) => {
   return state.set('items', beers).set('fetchingBeers', false)
@@ -16,6 +16,8 @@ const beers = (state = Immutable.Map({}), action) => {
       return state
     case FETCH_BEER_LIST_SUCCESS:
       return updateBeerList(state, action.beers)
+    case SELECT_BEER:
+      return state.set('selectedBeer', action.beer)
     default:
       return state
   }
