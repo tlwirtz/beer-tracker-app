@@ -3,7 +3,7 @@ import Box from 'grommet/components/Box'
 
 const BeerSingle = (props) => (
   <li>
-    <Box>
+    <Box full="horizontal" pad="medium">
       {props.beer.name} -- {props.beer._id}
     </Box>
   </li>

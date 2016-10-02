@@ -1,4 +1,4 @@
-// import 'grommet/scss/vanilla/index.scss';
+import 'grommet/scss/vanilla/index.scss';
 import App from 'grommet/components/App';
 import Heading from 'grommet/components/Heading';
 
