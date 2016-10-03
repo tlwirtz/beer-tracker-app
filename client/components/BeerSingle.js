@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import Inventory from './Inventory'
 
 class BeerSingle extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class BeerSingle extends React.Component {
     this.beerClick = this.beerClick.bind(this)
     this.onMouseLeaveHandle = this.onMouseLeaveHandle.bind(this)
     this.onMouseEnterHandle = this.onMouseEnterHandle.bind(this)
+    this.calculateInventory = this.calculateInventory.bind(this)
   }
   beerClick() {
     this.props.selectBeer(this.props.beer._id)
@@ -19,6 +21,13 @@ class BeerSingle extends React.Component {
   }
   onMouseEnterHandle() {
     this.setState({hovering: true})
+  }
+  calculateInventory() {
+    console.log('processing inventory', this.props.beer.transactions)
+    if (this.props.beer.transactions.length === 0 ) return 0
+    return this.props.beer.transactions
+      .map(((trans) => trans.type === 'adjust-up' ? trans.qty : -(trans.qty)))
+      .reduce((a, b) => a + b, 0)
   }
   render() {
     const { beer, beers } = this.props
@@ -36,6 +45,7 @@ class BeerSingle extends React.Component {
           >
         <h2>{this.props.beer.name} </h2>
         <p>{this.props.beer._id}</p>
+        <Inventory qty={this.calculateInventory()} />
       </div>
     )
   }
