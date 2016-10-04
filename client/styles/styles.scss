@@ -15,7 +15,15 @@ ul {
   border: solid thin $brand-color-darker;
 }
 
+.inventoryQty {
+  font-size: 5em !important;
+}
+
 .beerSingleSelected {
   border: solid thin $brand-color-darker;
   color: $brand-color-darker;
+}
+
+.lowInventory {
+  color: $brand-status-colors-lowInventory;
 }

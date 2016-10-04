@@ -23,7 +23,6 @@ class BeerSingle extends React.Component {
     this.setState({hovering: true})
   }
   calculateInventory() {
-    console.log('processing inventory', this.props.beer.transactions)
     if (this.props.beer.transactions.length === 0 ) return 0
     return this.props.beer.transactions
       .map(((trans) => trans.type === 'adjust-up' ? trans.qty : -(trans.qty)))
