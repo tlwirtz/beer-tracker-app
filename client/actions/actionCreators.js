@@ -27,13 +27,14 @@ export const addInventoryTransSuccess = (beerId, transactions) => (
   }
 )
 
-export const addInventoryTransFail = (beerId, err) => (
-  {
+export const addInventoryTransFail = (beerId, err) => {
+  console.log(err)
+  return {
     type: ADD_INVENTORY_TRANSACTION_FAILURE,
     beerId,
     err
   }
-)
+}
 
 export const selectBeer = (beer) => (
   {
@@ -72,20 +73,30 @@ export const fetchBeerListFailure = (err) => (
 
 export const sendInventoryTrans = (beer, qty) => (
   (dispatch) => {
-    const body = {
-      type: qty >= 0 ? 'adjust-up' : 'adjust-down',
-      qty
+    const opts = {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body:
+        JSON.stringify({
+          type: qty >= 0 ? 'adjust-up' : 'adjust-down',
+          qty
+        })
     }
 
     dispatch(addInventoryTrans())
-
-    //how do you post with `fetch`
-    return fetch(`${process.env.BEER_TRACKER_API}/api/beer${beer._id}/transaction`)
+    return fetch(
+      `${process.env.BEER_TRACKER_API}/api/beer/${beer._id}/transaction`,
+      opts
+    )
     .then((response) => response.json())
     .then((newBeer) => dispatch(addInventoryTransSuccess(newBeer._id, newBeer.transactions)))
     .catch((err) => dispatch(addInventoryTransFail(beer._id, err)))
   }
 )
+
 export const fetchBeers = () => (
   (dispatch) => {
     dispatch(fetchBeerList())

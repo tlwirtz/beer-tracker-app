@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import Inventory from './Inventory'
+import UpdateButton from './UpdateButton'
 
 class BeerSingle extends React.Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class BeerSingle extends React.Component {
         <h2>{this.props.beer.name} </h2>
         <p>{this.props.beer._id}</p>
         <Inventory qty={this.calculateInventory()} />
+        <UpdateButton beer={this.props.beer} {...this.props} />
       </div>
     )
   }
