@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 
 class UpdateButton extends React.Component{
   constructor(props) {
@@ -11,8 +12,12 @@ class UpdateButton extends React.Component{
   }
 
   render() {
+    let classes = classNames({
+      'beerSingle-button': true
+    })
+
     return (
-      <div>
+      <div className={classes}>
         <button key={this.props.beer._id}
           onClick={this.handleClick}>
           update

@@ -1,5 +1,6 @@
 import React from 'react'
 import BeerSingle from './BeerSingle'
+import classNames from 'classnames'
 
 class BeerList extends React.Component{
   constructor(props) {

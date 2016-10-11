@@ -37,16 +37,26 @@ class BeerSingle extends React.Component {
       'beerSingleSelected': beers.selectedBeer === beer._id
     })
 
+    let title = classNames({
+      'beerSingle-title':true
+    })
+
+    let flex = classNames({
+      'flex': true
+    })
+
     return (
-      <div onClick={this.beerClick}
-          onMouseEnter={this.onMouseEnterHandle}
-          onMouseLeave={this.onMouseLeaveHandle}
-          className={classes}
-          >
-        <h2>{this.props.beer.name} </h2>
-        <p>{this.props.beer._id}</p>
-        <Inventory qty={this.calculateInventory()} />
-        <UpdateButton beer={this.props.beer} {...this.props} />
+      <div className={flex}>
+        <div onClick={this.beerClick}
+            onMouseEnter={this.onMouseEnterHandle}
+            onMouseLeave={this.onMouseLeaveHandle}
+            className={classes}
+            >
+          <h2 className={title}>{this.props.beer.name}</h2>
+          <p className={title}>{this.props.beer._id}</p>
+          <UpdateButton beer={this.props.beer} {...this.props} />
+          <Inventory qty={this.calculateInventory()} />
+        </div>
       </div>
     )
   }
