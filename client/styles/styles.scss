@@ -3,28 +3,32 @@
 ul {
   list-style: none;
 }
+.beer-flex {
+  display: flex;
+  flex-direction: row; //TODO -- should switch to column using media query
+}
 
+//TODO -- LOOK INTO FLEX WRAP
 .beerSingle {
   padding: 1em;
   margin: 1em;
   border: solid thin $brand-grey-colors-1;
   border-radius: 20px;
-  display: flex;
-  flex-direction: row; //TODO -- should switch to column using media query
+  width: 100%;
 
   .beerSingle-title{
     align-self: center;
-    flex: 1 1 40%;
+    flex: 1 1 30%;
   }
 
   .beerSingle-inventory{
     align-self: center;
-    flex: 1 1 20%;
+    flex: auto;
   }
 
   .beerSingle-button {
     align-self: center;
-     flex: 1 1 20%;
+    flex: auto;
   }
 }
 

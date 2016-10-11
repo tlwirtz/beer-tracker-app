@@ -34,19 +34,18 @@ class BeerSingle extends React.Component {
     let classes = classNames({
       'beerSingle': true,
       'hovering': this.state.hovering,
-      'beerSingleSelected': beers.selectedBeer === beer._id
+      'beerSingleSelected': beers.selectedBeer === beer._id,
+      'beer-flex': true
     })
 
     let title = classNames({
       'beerSingle-title':true
     })
 
-    let flex = classNames({
-      'flex': true
-    })
+
 
     return (
-      <div className={flex}>
+      <div>
         <div onClick={this.beerClick}
             onMouseEnter={this.onMouseEnterHandle}
             onMouseLeave={this.onMouseLeaveHandle}
