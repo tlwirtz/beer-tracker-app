@@ -53,7 +53,6 @@ class BeerSingle extends React.Component {
             >
           <h2 className={title}>{this.props.beer.name}</h2>
           <p className={title}>{this.props.beer._id}</p>
-          {/* <UpdateButton beer={this.props.beer} {...this.props} /> */}
           <RemoveInventory beer={this.props.beer} {...this.props} />
           <Inventory qty={this.calculateInventory()} />
           <AddInventory beer={this.props.beer} {...this.props} />
