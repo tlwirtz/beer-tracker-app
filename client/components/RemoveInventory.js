@@ -13,13 +13,19 @@ class RemoveInventory extends React.Component {
 
   render() {
     let classes = classNames({
-      'beerSingle-button': true
+      'beerSingle-button': true,
+    })
+
+    let btnClasses = classNames({
+      'beerTracker-red': true,
+      'beerTracker-inventoryButton': true
     })
 
     return (
       <div className={classes}>
         <button key={this.props.beer._id}
-          onClick={this.handleClick}>
+          onClick={this.handleClick}
+          className={btnClasses}>
             -
           </button>
       </div>

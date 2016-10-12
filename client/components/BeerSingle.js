@@ -1,7 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
 import Inventory from './Inventory'
-import UpdateButton from './UpdateButton'
 import AddInventory from './AddInventory'
 import RemoveInventory from './RemoveInventory'
 

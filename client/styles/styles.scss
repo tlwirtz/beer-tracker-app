@@ -8,6 +8,21 @@ ul {
   flex-direction: row; //TODO -- should switch to column using media query
 }
 
+.beerTracker-green {
+  color: $brand-status-colors-ok !important;
+}
+
+
+.beerTracker-red {
+  color: $brand-status-colors-lowInventory !important;
+}
+
+.beerTracker-inventoryButton {
+  border: 0 !important;
+  font-size: 3em !important;
+  font-weight: 200 !important;
+}
+
 //TODO -- LOOK INTO FLEX WRAP
 .beerSingle {
   padding: 1em;
@@ -23,12 +38,10 @@ ul {
 
   .beerSingle-inventory{
     align-self: center;
-    flex: auto;
   }
 
   .beerSingle-button {
     align-self: center;
-    flex: auto;
   }
 }
 
