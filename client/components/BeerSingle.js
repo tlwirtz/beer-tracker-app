@@ -2,6 +2,8 @@ import React from 'react'
 import classNames from 'classnames'
 import Inventory from './Inventory'
 import UpdateButton from './UpdateButton'
+import AddInventory from './AddInventory'
+import RemoveInventory from './RemoveInventory'
 
 class BeerSingle extends React.Component {
   constructor(props) {
@@ -42,8 +44,6 @@ class BeerSingle extends React.Component {
       'beerSingle-title':true
     })
 
-
-
     return (
       <div>
         <div onClick={this.beerClick}
@@ -53,8 +53,10 @@ class BeerSingle extends React.Component {
             >
           <h2 className={title}>{this.props.beer.name}</h2>
           <p className={title}>{this.props.beer._id}</p>
-          <UpdateButton beer={this.props.beer} {...this.props} />
+          {/* <UpdateButton beer={this.props.beer} {...this.props} /> */}
+          <RemoveInventory beer={this.props.beer} {...this.props} />
           <Inventory qty={this.calculateInventory()} />
+          <AddInventory beer={this.props.beer} {...this.props} />
         </div>
       </div>
     )
