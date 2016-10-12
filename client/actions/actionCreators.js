@@ -82,11 +82,11 @@ export const sendInventoryTrans = (beer, qty) => (
       body:
         JSON.stringify({
           type: qty >= 0 ? 'adjust-up' : 'adjust-down',
-          qty
+          qty: Math.abs(qty)
         })
     }
 
-    dispatch(addInventoryTrans())
+    dispatch(addInventoryTrans(beer, qty, qty >= 0 ? 'adjust-up' : 'adjust-down'))
     return fetch(
       `${process.env.BEER_TRACKER_API}/api/beer/${beer._id}/transaction`,
       opts
