@@ -10,6 +10,10 @@
   }
 }
 
+.beerListSingle {
+  margin: 1em;
+}
+
 .beerTracker-green {
   color: $brand-status-colors-ok !important;
 }
@@ -20,10 +24,6 @@
 
 .hovering {
   border: solid thin $brand-color-darker;
-}
-
-.inventoryQty {
-  font-size: 5em !important;
 }
 
 .beerSingleSelected {

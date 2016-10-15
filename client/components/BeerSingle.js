@@ -35,7 +35,8 @@ class BeerSingle extends React.Component {
     const boxClass = classNames({
       'hovering': this.state.hovering,
       'beerSingleSelected': beers.selectedBeer === beer._id,
-      'box': true
+      'box': true,
+      'beerListSingle': true
     })
 
     const levelMain = classNames({
@@ -58,7 +59,7 @@ class BeerSingle extends React.Component {
     })
 
     return (
-      <div>
+      <div className="container">
         <div onClick={this.beerClick}
             onMouseEnter={this.onMouseEnterHandle}
             onMouseLeave={this.onMouseLeaveHandle}
