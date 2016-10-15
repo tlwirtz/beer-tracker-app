@@ -12,22 +12,26 @@ class AddInventory extends React.Component {
   }
 
   render() {
-    let classes = classNames({
-      'beerSingle-button': true,
+    const classes = classNames({
+      'level-item': true
     })
 
-    let btnClasses = classNames({
-      'beerTracker-green': true,
-      'beerTracker-inventoryButton': true
+    const iconItem = classNames({
+      'icon': true,
+      'has-text-centered': true
+    })
+
+    const plusSymbol = classNames({
+      'fa-plus': true,
+      'fa': true,
+      'beerTracker-green': true
     })
 
     return (
       <div className={classes}>
-        <button key={this.props.beer._id}
-          onClick={this.handleClick}
-          className={btnClasses}>
-            +
-          </button>
+        <a className={iconItem} onClick={this.handleClick} key={this.props.beer._id}>
+          <i className={plusSymbol}></i>
+        </a>
       </div>
     )
   }
