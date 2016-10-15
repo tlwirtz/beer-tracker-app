@@ -1,4 +1,3 @@
-import 'grommet/scss/vanilla/index.scss';
 import App from 'grommet/components/App';
 import Heading from 'grommet/components/Heading';
 
@@ -9,7 +8,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props)
   }
-  
+
   render() {
     return (
       <App>

@@ -3,18 +3,63 @@
 ul {
   list-style: none;
 }
+.beer-flex {
+  display: flex;
+  flex-direction: row; //TODO -- should switch to column using media query
+}
+
+.beerTracker-green {
+  color: $brand-status-colors-ok !important;
+}
+
+
+.beerTracker-red {
+  color: $brand-status-colors-lowInventory !important;
+}
+
+.beerTracker-inventoryButton {
+  border: 0 !important;
+  font-size: 3em !important;
+  font-weight: 200 !important;
+}
+
+//TODO -- LOOK INTO FLEX WRAP
+//TODO -- Look more into the grommett css
 
 .beerSingle {
   padding: 1em;
   margin: 1em;
   border: solid thin $brand-grey-colors-1;
+  border-radius: 20px;
+  width: 100%;
+
+  .beerSingle-title{
+    align-self: center;
+    flex: 1 1 30%;
+  }
+
+  .beerSingle-inventory{
+    align-self: center;
+  }
+
+  .beerSingle-button {
+    align-self: center;
+  }
 }
 
 .hovering {
   border: solid thin $brand-color-darker;
 }
 
+.inventoryQty {
+  font-size: 5em !important;
+}
+
 .beerSingleSelected {
   border: solid thin $brand-color-darker;
   color: $brand-color-darker;
+}
+
+.lowInventory {
+  color: $brand-status-colors-lowInventory;
 }
