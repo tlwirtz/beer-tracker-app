@@ -1,5 +1,4 @@
-import App from 'grommet/components/App';
-import Heading from 'grommet/components/Heading';
+import NavBar from './NavBar'
 
 import React from 'react';
 import { Link } from 'react-router';
@@ -15,12 +14,12 @@ class Main extends React.Component {
       main: 'true'
     })
     return (
-      <App>
-        <div className={classes}>
-          <h1>BEER TRACKER</h1>
-          {React.cloneElement(this.props.children, this.props)}
-        </div>
-      </App>
+      <div>
+        <NavBar />
+          <div className={classes}>
+            {React.cloneElement(this.props.children, this.props)}
+          </div>
+      </div>
     )
   }
 }
