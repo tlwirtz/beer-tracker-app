@@ -3,6 +3,7 @@ import Heading from 'grommet/components/Heading';
 
 import React from 'react';
 import { Link } from 'react-router';
+import classNames from 'classnames';
 
 class Main extends React.Component {
   constructor(props) {
@@ -10,9 +11,12 @@ class Main extends React.Component {
   }
 
   render() {
+    const classes = classNames({
+      main: 'true'
+    })
     return (
       <App>
-        <div>
+        <div className={classes}>
           <h1>BEER TRACKER</h1>
           {React.cloneElement(this.props.children, this.props)}
         </div>

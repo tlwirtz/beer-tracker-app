@@ -1,8 +1,9 @@
 @import "theme";
 
-ul {
-  list-style: none;
+div.main {
+  padding: 2em;
 }
+
 .beer-flex {
   display: flex;
   flex-direction: row; //TODO -- should switch to column using media query
@@ -22,9 +23,6 @@ ul {
   font-size: 3em !important;
   font-weight: 200 !important;
 }
-
-//TODO -- LOOK INTO FLEX WRAP
-//TODO -- Look more into the grommett css
 
 .beerSingle {
   padding: 1em;
