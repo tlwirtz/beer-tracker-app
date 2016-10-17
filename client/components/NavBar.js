@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames'
+import { Link } from 'react-router'
 
 class NavBar extends React.Component {
   constructor(props){
@@ -24,7 +25,7 @@ class NavBar extends React.Component {
 
     const navItem = classNames({
       'is-tab': true,
-      'nav-item': true
+      'nav-item': true,
     })
 
     const navLogo = classNames({
@@ -34,6 +35,10 @@ class NavBar extends React.Component {
       'is-2': true
     })
 
+    const whiteText = classNames({
+      'whiteText': true
+    })
+
     return(
       <nav className={nav}>
         <div className={navLeft}>
@@ -41,8 +46,8 @@ class NavBar extends React.Component {
         </div>
         <div className={navRight}>
         {/* THIS SHOULD BE LINKS TO OTHER ROUTES */}
-          <h2 className={navItem}>Manage Beers</h2>
-          <h2 className={navItem}>Manage Devices</h2>
+          <h2 className={navItem}><Link className={whiteText} to={'/beers'}> Manage Beers</Link></h2>
+          <h2 className={navItem}><Link className={whiteText} to={'/devices'}>Manage Devices</Link></h2>
         </div>
       </nav>
     )

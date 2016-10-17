@@ -17,7 +17,6 @@ class AddInventory extends React.Component {
       'subtitle': true,
       'is-2': true,
       'has-centered-text': true
-
     })
 
     const linkClass = classNames({
