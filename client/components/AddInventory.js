@@ -16,11 +16,6 @@ class AddInventory extends React.Component {
       'level-item': true,
       'subtitle': true,
       'is-2': true,
-      'has-centered-text': true
-    })
-
-    const linkClass = classNames({
-      'has-text-centered': true
     })
 
     const plusSymbol = classNames({
@@ -29,7 +24,7 @@ class AddInventory extends React.Component {
 
     return (
       <div className={classes}>
-        <a className={linkClass} onClick={this.handleClick} key={this.props.beer._id}>
+        <a onClick={this.handleClick} key={this.props.beer._id}>
           <h2 className={plusSymbol}>+</h2>
         </a>
       </div>

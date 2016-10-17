@@ -8,46 +8,22 @@ class NavBar extends React.Component {
   }
 
   render() {
-
-    const navLeft = classNames({
-      'nav-left':true,
-    })
-
-    const nav = classNames({
-      'nav':true,
-      'has-shadow': true,
-      'beerTrackerNav': true
-    })
-
-    const navRight = classNames({
-      'nav-right':true
-    })
-
-    const navItem = classNames({
-      'is-tab': true,
-      'nav-item': true,
-    })
-
-    const navLogo = classNames({
-      'nav-item': true,
-      'is-brand': true,
-      'title': true,
-      'is-2': true
-    })
-
-    const whiteText = classNames({
-      'whiteText': true
-    })
+    const nav = classNames('nav', 'has-shadow', 'beerTrackerNav')
+    const navLeft = classNames('nav-left')
+    const navRight = classNames('nav-right')
+    const navItem = classNames('is-tab', 'nav-item')
+    const navLogo = classNames('nav-item', 'is-brand', 'title', 'is-2')
+    const navLinks = classNames('nav-item')
 
     return(
       <nav className={nav}>
         <div className={navLeft}>
-          <h1 className={navLogo}>Beer Tracker</h1>
+          <h1 className={navLogo}><Link to={'/'}>Beer Tracker</Link></h1>
         </div>
         <div className={navRight}>
         {/* THIS SHOULD BE LINKS TO OTHER ROUTES */}
-          <h2 className={navItem}><Link className={whiteText} to={'/beers'}> Manage Beers</Link></h2>
-          <h2 className={navItem}><Link className={whiteText} to={'/devices'}>Manage Devices</Link></h2>
+          <Link className={navLinks} to={'/beers'}> Manage Beers</Link>
+          <Link className={navLinks} to={'/devices'}>Manage Devices</Link>
         </div>
       </nav>
     )

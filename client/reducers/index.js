@@ -3,7 +3,8 @@ import { routerReducer } from 'react-router-redux';
 import Immutable from 'immutable'
 
 import { SELECT_BEER, FETCH_BEER_LIST, FETCH_BEER_LIST_FAILURE, FETCH_BEER_LIST_SUCCESS,
-          ADD_INVENTORY_TRANSACTION, ADD_INVENTORY_TRANSACTION_SUCCESS, ADD_INVENTORY_TRANSACTION_FAILURE} from '../actions/actionCreators'
+          ADD_INVENTORY_TRANSACTION, ADD_INVENTORY_TRANSACTION_SUCCESS, ADD_INVENTORY_TRANSACTION_FAILURE,
+          ADD_BEER, ADD_BEER_SUCCESS, ADD_BEER_FAILURE} from '../actions/actionCreators'
 
 const updateBeerList = (state, beers) => {
   return state.set('items', beers).set('fetchingBeers', false)
@@ -17,8 +18,20 @@ const updateTransaction = (state, action) => {
   return Immutable.fromJS(stateJS)
 }
 
+const addBeer = (state, beer) => {
+  const stateJS = state.toJS()
+  stateJS.items.push(beer)
+  return Immutable.fromJS(stateJS)
+}
+
 const beers = (state = Immutable.Map({}), action) => {
   switch(action.type) {
+    case ADD_BEER_SUCCESS:
+      return addBeer(state, action.beer )
+    case ADD_BEER:
+      return state;
+    case ADD_BEER_FAILURE:
+      return state;
     case FETCH_BEER_LIST:
       return state.set('fetchingBeers', true)
     case FETCH_BEER_LIST_FAILURE:
