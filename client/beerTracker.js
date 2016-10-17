@@ -5,6 +5,8 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import store, { history } from './store'
 import App from './components/App'
+import ManageBeers from './components/ManageBeers'
+import ManageDevices from './components/ManageDevices'
 import { fetchBeers } from './actions/actionCreators'
 import BeerList from './components/BeerList'
 
@@ -15,6 +17,8 @@ const router = (
     <Router history={history}>
     <Route path="/" component={App}>
       <IndexRoute component={BeerList}></IndexRoute>
+      <Route path="/beers" component={ManageBeers}></Route>
+      <Route path="/devices" component={ManageDevices}></Route>
     </Route>
     </Router>
   </Provider>
