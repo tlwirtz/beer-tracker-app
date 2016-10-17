@@ -40,7 +40,9 @@ class NavBar extends React.Component {
           <h1 className={navLogo}>Beer Tracker</h1>
         </div>
         <div className={navRight}>
-          <h2 className={navItem}>Add New Beer</h2>
+        {/* THIS SHOULD BE LINKS TO OTHER ROUTES */}
+          <h2 className={navItem}>Manage Beers</h2>
+          <h2 className={navItem}>Manage Devices</h2>
         </div>
       </nav>
     )

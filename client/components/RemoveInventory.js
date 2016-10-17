@@ -13,29 +13,21 @@ class RemoveInventory extends React.Component {
 
   render() {
     const classes = classNames({
-      'level-item': true
+      'level-item': true,
+      'subtitle': true,
+      'is-2': true,
+      'has-centered-text': true
     })
 
-    const iconItem = classNames({
-      'icon': true
-    })
-
-    const plusSymbol = classNames({
-      'fa-minus': true,
-      'fa': true,
-      'beerTracker-red': true
+    const minusSymbol = classNames({
+      'beerTracker-red': true,
     })
 
     return (
       <div className={classes}>
-        <a className={iconItem} onClick={this.handleClick} key={this.props.beer._id}>
-          <i className={plusSymbol}></i>
+        <a onClick={this.handleClick} key={this.props.beer._id}>
+          <h2 className={minusSymbol}>-</h2>
         </a>
-        {/* <button key={this.props.beer._id}
-          onClick={this.handleClick}
-          className={btnClasses}>
-            +
-          </button> */}
       </div>
     )
   }

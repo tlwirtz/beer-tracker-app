@@ -44,7 +44,7 @@ class BeerSingle extends React.Component {
     })
 
     const levelItem = classNames({
-      'level-item': true
+      'level-item': true,
     })
 
     const levelLeft = classNames({
@@ -59,6 +59,7 @@ class BeerSingle extends React.Component {
     })
 
     return (
+      //TODO -- maybe these should be converted to cards insted of boxes...
       <div className="container">
         <div onClick={this.beerClick}
             onMouseEnter={this.onMouseEnterHandle}
