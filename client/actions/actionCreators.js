@@ -2,6 +2,8 @@ import fetch from 'isomorphic-fetch'
 
 
 export const ADD_BEER = 'ADD_BEER'
+export const ADD_BEER_SUCCESS = 'ADD_BEER_SUCCESS'
+export const ADD_BEER_FAILURE = 'ADD_BEER_FAILURE'
 export const SELECT_BEER = 'SELECT_BEER'
 export const FETCH_BEER_LIST = 'FETCH_BEER_LIST'
 export const FETCH_BEER_LIST_SUCCESS = 'FETCH_BEER_LIST_SUCCESS'
@@ -47,6 +49,20 @@ export const addBeer = (beer) => (
   {
     type: ADD_BEER,
     beer
+  }
+)
+
+export const addBeerSuccess = (beer) => (
+  {
+    type: ADD_BEER_SUCCESS,
+    beer
+  }
+)
+
+export const addBeerFailuire = (err) => (
+  {
+    type: ADD_BEER_FAILURE,
+    error: err
   }
 )
 
@@ -104,5 +120,23 @@ export const fetchBeers = () => (
     .then((response) => response.json())
     .then((json) => dispatch(fetchBeerListSuccess(json)))
     .catch((err) => dispatch(fetchBeerListFailure(err)))
+  }
+)
+
+export const addBeerReq = (beer) => (
+  (dispatch) => {
+    const opts = {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(beer)
+    }
+    dispatch(addBeer(beer))
+    return fetch(`${process.env.BEER_TRACKER_API}/api/beer`, opts)
+    .then((response) => response.json())
+    .then((json) => dispatch(addBeerSuccess(json)))
+    .catch((err) => dispatch(addBeerFailuire(err)))
   }
 )

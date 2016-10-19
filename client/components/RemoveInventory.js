@@ -12,22 +12,22 @@ class RemoveInventory extends React.Component {
   }
 
   render() {
-    let classes = classNames({
-      'beerSingle-button': true,
+    const classes = classNames({
+      'level-item': true,
+      'subtitle': true,
+      'is-2': true,
+      'has-centered-text': true
     })
 
-    let btnClasses = classNames({
+    const minusSymbol = classNames({
       'beerTracker-red': true,
-      'beerTracker-inventoryButton': true
     })
 
     return (
       <div className={classes}>
-        <button key={this.props.beer._id}
-          onClick={this.handleClick}
-          className={btnClasses}>
-            -
-          </button>
+        <a onClick={this.handleClick} key={this.props.beer._id}>
+          <h2 className={minusSymbol}>-</h2>
+        </a>
       </div>
     )
   }

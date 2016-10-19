@@ -1,4 +1,3 @@
-import 'grommet/scss/vanilla/index.scss';
 import './styles/styles.scss'
 
 import { createStore, compose, applyMiddleware } from 'redux'

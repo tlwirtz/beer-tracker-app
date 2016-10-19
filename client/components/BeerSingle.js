@@ -32,29 +32,59 @@ class BeerSingle extends React.Component {
   }
   render() {
     const { beer, beers } = this.props
-    let classes = classNames({
-      'beerSingle': true,
+    const boxClass = classNames({
       'hovering': this.state.hovering,
       'beerSingleSelected': beers.selectedBeer === beer._id,
-      'beer-flex': true
+      'box': true,
+      'beerListSingle': true
     })
 
-    let title = classNames({
-      'beerSingle-title':true
+    const levelMain = classNames({
+      'level': true
+    })
+
+    const levelItem = classNames({
+      'level-item': true,
+    })
+
+    const levelLeft = classNames({
+      'level-left': true
+    })
+    const levelRight = classNames({
+      'level-right': true
+    })
+
+    const beerSingleTitle = classNames({
+      'title': true
     })
 
     return (
-      <div>
+      //TODO -- maybe these should be converted to cards insted of boxes...
+      <div className="container">
         <div onClick={this.beerClick}
             onMouseEnter={this.onMouseEnterHandle}
             onMouseLeave={this.onMouseLeaveHandle}
-            className={classes}
+            className={boxClass}
             >
-          <h2 className={title}>{this.props.beer.name}</h2>
-          <p className={title}>{this.props.beer._id}</p>
-          <RemoveInventory beer={this.props.beer} {...this.props} />
-          <Inventory qty={this.calculateInventory()} />
-          <AddInventory beer={this.props.beer} {...this.props} />
+            <div className={levelMain}>
+              <div className={levelLeft}>
+                <div className={levelItem}>
+                  <h2 className={beerSingleTitle}>{this.props.beer.name}</h2>
+                  <p>{this.props.beer._id}</p>
+                </div>
+              </div>
+              <div className={levelRight}>
+                <div className={levelItem}>
+                  <RemoveInventory  beer={this.props.beer} {...this.props} />
+                  </div>
+                  <div className={levelItem}>
+                  <Inventory qty={this.calculateInventory()} />
+                  </div>
+                  <div className={levelItem}>
+                  <AddInventory  beer={this.props.beer} {...this.props} />
+                  </div>
+              </div>
+            </div>
         </div>
       </div>
     )
