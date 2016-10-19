@@ -21,8 +21,7 @@ class NavBar extends React.Component {
           <h1 className={navLogo}><Link to={'/'}>Beer Tracker</Link></h1>
         </div>
         <div className={navRight}>
-        {/* THIS SHOULD BE LINKS TO OTHER ROUTES */}
-          <Link className={navLinks} to={'/beers'}> Manage Beers</Link>
+          <Link className={navLinks} to={'/beers/add'}> Manage Beers</Link>
           <Link className={navLinks} to={'/devices'}>Manage Devices</Link>
         </div>
       </nav>

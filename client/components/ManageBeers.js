@@ -1,5 +1,6 @@
 import React from 'react'
 import AddBeerForm from './AddBeerForm'
+import classNames from 'classnames'
 
 class ManageBeers extends React.Component {
     constructor(props) {
@@ -7,15 +8,13 @@ class ManageBeers extends React.Component {
     }
 
     render() {
+        const content = classNames('content')
+        const container = classNames('container', 'is-fluid')
         return (
-            <div>
-                <h1> MANAGING BEERS</h1>
-                <ol>
-                    <li>Display beers -- click brings to beer detail page</li>
-                    <li>Form for New Beers</li>
-                    <li>Link action to creat Beers</li>
-                </ol>
-                <AddBeerForm {...this.props}/>
+            <div className={container}>
+                <div className={content}>
+                    <AddBeerForm {...this.props}/>
+                </div>
             </div>
         )
     }
