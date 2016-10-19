@@ -8,7 +8,7 @@ import App from './components/App'
 import ManageBeers from './components/ManageBeers'
 import ManageDevices from './components/ManageDevices'
 import { fetchBeers } from './actions/actionCreators'
-import BeerList from './components/BeerList'
+import BeerStatsContainer from './components/BeerStatsContainer'
 
 store.dispatch(fetchBeers())
 
@@ -16,8 +16,8 @@ const router = (
   <Provider store={store}>
     <Router history={history}>
     <Route path="/" component={App}>
-      <IndexRoute component={BeerList}></IndexRoute>
-      <Route path="/beers/add" component={ManageBeers}></Route>
+      <IndexRoute component={BeerStatsContainer}></IndexRoute>
+      <Route path="/beers" component={ManageBeers}></Route>
       <Route path="/devices" component={ManageDevices}></Route>
     </Route>
     </Router>
