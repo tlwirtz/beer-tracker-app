@@ -12,16 +12,8 @@ class AddInventory extends React.Component {
   }
 
   render() {
-    const classes = classNames({
-      'level-item': true,
-      'subtitle': true,
-      'is-2': true,
-    })
-
-    const plusSymbol = classNames({
-      'beerTracker-green': true
-    })
-
+    const classes = classNames('level-item', 'subtitle', 'is-2')
+    const plusSymbol = classNames('beerTracker-green')
     return (
       <div className={classes}>
         <a onClick={this.handleClick} key={this.props.beer._id}>

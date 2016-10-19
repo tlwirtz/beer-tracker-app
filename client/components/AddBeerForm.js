@@ -22,8 +22,7 @@ class AddBeerForm extends React.Component {
   }
 
   render() {
-
-    const controlGroup = classNames('control', 'is-grouped', 'content', 'beerForm')
+    const controlGroup = classNames('control', 'is-grouped', 'level-item', 'beerForm')
     const control = classNames('control')
     const input = classNames('input')
     const button = classNames('button', 'is-info')

@@ -15,14 +15,15 @@ class NavBar extends React.Component {
     const navLogo = classNames('nav-item', 'is-brand', 'title', 'is-2')
     const navLinks = classNames('nav-item')
 
+    //TODO -- consider changing this to a hero header / hero body / hero footer
     return(
       <nav className={nav}>
         <div className={navLeft}>
           <h1 className={navLogo}><Link to={'/'}>Beer Tracker</Link></h1>
         </div>
         <div className={navRight}>
-          <Link className={navLinks} to={'/beers/add'}> Manage Beers</Link>
-          <Link className={navLinks} to={'/devices'}>Manage Devices</Link>
+          <Link className={navLinks} to={'/beers'}>Beers</Link>
+          <Link className={navLinks} to={'/devices'}>Devices</Link>
         </div>
       </nav>
     )
