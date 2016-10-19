@@ -10,7 +10,8 @@ class BeerList extends React.Component{
       <div>
         { this.props.beers.fetchingBeers ?
           <h2>Loading Beers</h2> :
-          this.props.beers.items.map((beer) => <BeerSingle
+          this.props.beers.items.map((beer) =>
+          <BeerSingle
                 key={beer._id}
                 beer={beer}
                 {...this.props}/>
