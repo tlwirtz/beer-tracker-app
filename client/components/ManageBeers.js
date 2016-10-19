@@ -1,5 +1,6 @@
 import React from 'react'
 import AddBeerForm from './AddBeerForm'
+import BeerList from './BeerList'
 import classNames from 'classnames'
 
 class ManageBeers extends React.Component {
@@ -8,13 +9,13 @@ class ManageBeers extends React.Component {
     }
 
     render() {
-        const content = classNames('content')
-        const container = classNames('container', 'is-fluid')
+        const level = classNames('level')
         return (
-            <div className={container}>
-                <div className={content}>
-                    <AddBeerForm {...this.props}/>
+            <div>
+                <div className={level}>
+                    <AddBeerForm {...this.props} />
                 </div>
+                <BeerList {...this.props} />
             </div>
         )
     }
