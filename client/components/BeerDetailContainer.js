@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import BeerDetailHeader from './BeerDetailHeader'
+import BeerTransactionList from './BeerTransactionList'
 
 
 class BeerDetailContainer extends React.Component {
@@ -19,7 +20,11 @@ class BeerDetailContainer extends React.Component {
       <div>
         { this.props.beers.fetchingBeers ?
             <h1>FETCHING BEER</h1> :
-            <BeerDetailHeader beer={this.filterBeerItems()} /> }
+            <div>
+              <BeerDetailHeader beer={this.filterBeerItems()} />
+              <BeerTransactionList transactions={this.filterBeerItems().transactions} />
+            </div>
+        }
       </div>
     )
 
