@@ -22,15 +22,13 @@ class AddBeerForm extends React.Component {
   }
 
   render() {
-
-    const controlGroup = classNames('control', 'is-grouped')
-    const controlExpanded = classNames('control', 'is-expanded')
+    const controlGroup = classNames('control', 'is-grouped', 'level-item', 'beerForm')
     const control = classNames('control')
     const input = classNames('input')
     const button = classNames('button', 'is-info')
     return (
       <div className={controlGroup}>
-        <p className={controlExpanded}>
+        <p className={control}>
           <input className={input} onChange={this.inputNameChange} type="text" placeholder="Enter Beer Name" />
         </p>
         <p className={control}>

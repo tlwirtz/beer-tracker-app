@@ -10,15 +10,14 @@ class Main extends React.Component {
   }
 
   render() {
-    const classes = classNames({
-      main: 'true'
-    })
+    const main = classNames('main')
+    const container = classNames('container')
     return (
       <div>
         <NavBar />
-          <div className={classes}>
-            {React.cloneElement(this.props.children, this.props)}
-          </div>
+        <div className={main}>
+          {React.cloneElement(this.props.children, this.props)}
+        </div>
       </div>
     )
   }
