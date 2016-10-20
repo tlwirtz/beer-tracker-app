@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import Inventory from './Inventory'
 import AddInventory from './AddInventory'
 import RemoveInventory from './RemoveInventory'
+import BeerDetailHeader from './BeerDetailHeader'
 
 class BeerSingle extends React.Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class BeerSingle extends React.Component {
       .map(((trans) => trans.type === 'adjust-up' ? trans.qty : -(trans.qty)))
       .reduce((a, b) => a + b, 0)
   }
+
   render() {
     const { beer, beers } = this.props
     const boxClass = classNames({
@@ -39,25 +41,10 @@ class BeerSingle extends React.Component {
       'beerListSingle': true
     })
 
-    const levelMain = classNames({
-      'level': true
-    })
-
-    const levelItem = classNames({
-      'level-item': true,
-    })
-
-    const levelLeft = classNames({
-      'level-left': true
-    })
-
-    const levelRight = classNames({
-      'level-right': true
-    })
-
-    const beerSingleTitle = classNames({
-      'title': true
-    })
+    const levelMain = classNames('level')
+    const levelItem = classNames('level-item')
+    const levelLeft = classNames('level-left')
+    const levelRight = classNames('level-right')
 
     return (
       <div className="container">
@@ -68,10 +55,7 @@ class BeerSingle extends React.Component {
             >
             <div className={levelMain}>
               <div className={levelLeft}>
-                <div className={levelItem}>
-                  <h2 className={beerSingleTitle}>{this.props.beer.name}</h2>
-                  <p>{this.props.beer._id}</p>
-                </div>
+                <BeerDetailHeader beer={this.props.beer}/>
               </div>
               <div className={levelRight}>
                 <div className={levelItem}>
