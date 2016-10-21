@@ -1,5 +1,9 @@
-@import "../../node_modules/bulma/bulma";
 @import "theme";
+
+$body-background: white;
+$primary: $brand-color-darker;
+
+@import "../../node_modules/bulma/bulma";
 
 .beerTrackerNav {
   color: white;
@@ -26,11 +30,11 @@
 }
 
 .beerTracker-green {
-  color: $brand-status-colors-ok !important;
+  color: $brand-status-colors-ok;
 }
 
 .beerTracker-red {
-  color: $brand-status-colors-lowInventory !important;
+  color: $brand-status-colors-lowInventory;
 }
 
 .hovering {
@@ -39,9 +43,12 @@
 
 .beerSingleSelected {
   border: solid thin $brand-color-darker;
-  color: $brand-color-darker;
 }
 
 .lowInventory {
   color: $brand-status-colors-lowInventory;
+}
+
+.grey-text {
+  color: $grey-lighter;
 }
