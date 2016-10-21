@@ -1,15 +1,18 @@
 import React from 'react'
+import { Link } from 'react-router'
 import classNames from 'classnames'
 import Inventory from './Inventory'
 import AddInventory from './AddInventory'
 import RemoveInventory from './RemoveInventory'
 import BeerDetailHeader from './BeerDetailHeader'
+import BeerTransactionList from './BeerTransactionList'
 
 class BeerSingle extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      hovering: false
+      hovering: false,
+      showDetail: false
     }
     this.beerClick = this.beerClick.bind(this)
     this.onMouseLeaveHandle = this.onMouseLeaveHandle.bind(this)
@@ -18,6 +21,7 @@ class BeerSingle extends React.Component {
   }
   beerClick() {
     this.props.selectBeer(this.props.beer._id)
+    this.setState({showDetail: !this.state.showDetail})
   }
   onMouseLeaveHandle() {
     this.setState({hovering: false})
@@ -47,30 +51,36 @@ class BeerSingle extends React.Component {
     const levelRight = classNames('level-right')
 
     return (
-      <div className="container">
-        <div onClick={this.beerClick}
-            onMouseEnter={this.onMouseEnterHandle}
-            onMouseLeave={this.onMouseLeaveHandle}
-            className={boxClass}
-            >
-            <div className={levelMain}>
-              <div className={levelLeft}>
-                <BeerDetailHeader beer={this.props.beer}/>
-              </div>
-              <div className={levelRight}>
-                <div className={levelItem}>
-                  <RemoveInventory  beer={this.props.beer} {...this.props} />
-                  </div>
+        <div className="container">
+          <div onClick={this.beerClick}
+              onMouseEnter={this.onMouseEnterHandle}
+              onMouseLeave={this.onMouseLeaveHandle}
+              className={boxClass}
+              >
+              <div className={levelMain}>
+                <div className={levelLeft}>
+                  <BeerDetailHeader beer={beer}/>
+                </div>
+                <div className={levelRight}>
                   <div className={levelItem}>
-                  <Inventory qty={this.calculateInventory()} />
-                  </div>
-                  <div className={levelItem}>
-                  <AddInventory  beer={this.props.beer} {...this.props} />
-                  </div>
+                    <RemoveInventory  beer={beer} {...this.props} />
+                    </div>
+                    <div className={levelItem}>
+                    <Inventory qty={this.calculateInventory()} />
+                    </div>
+                    <div className={levelItem}>
+                    <AddInventory  beer={beer} {...this.props} />
+                    </div>
+                </div>
               </div>
-            </div>
+              {
+                this.state.showDetail ?
+                <div>
+                  <BeerTransactionList transactions={beer.transactions.slice(0, 10)}/>
+                </div> : null
+              }
+          </div>
         </div>
-      </div>
     )
   }
 }
