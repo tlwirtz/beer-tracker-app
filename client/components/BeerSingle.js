@@ -19,7 +19,8 @@ class BeerSingle extends React.Component {
     this.onMouseEnterHandle = this.onMouseEnterHandle.bind(this)
     this.calculateInventory = this.calculateInventory.bind(this)
   }
-  beerClick() {
+  beerClick(e) {
+    //TODO -- should not update state if the '-' or '+' is clicked
     this.props.selectBeer(this.props.beer._id)
     this.setState({showDetail: !this.state.showDetail})
   }
@@ -45,7 +46,7 @@ class BeerSingle extends React.Component {
       'beerListSingle': true
     })
 
-    const levelMain = classNames('level')
+    const levelMain = classNames('level', 'is-mobile')
     const levelItem = classNames('level-item')
     const levelLeft = classNames('level-left')
     const levelRight = classNames('level-right')
@@ -76,7 +77,8 @@ class BeerSingle extends React.Component {
               {
                 this.state.showDetail ?
                 <div>
-                  <BeerTransactionList transactions={beer.transactions.slice(0, 10)}/>
+                  <BeerTransactionList
+                  transactions={beer.transactions.slice(-10).reverse()}/>
                 </div> : null
               }
           </div>
