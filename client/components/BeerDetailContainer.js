@@ -16,11 +16,13 @@ class BeerDetailContainer extends React.Component {
   }
 
   render() {
+    const underConstruction = classNames('title', 'is-large', 'has-text-centered', 'notification', 'is-warning')
     return (
       <div>
         { this.props.beers.fetchingBeers ?
             <h1>FETCHING BEER</h1> :
             <div>
+              <h1 className={underConstruction}>UNDER CONSTRUCTION</h1>
               <BeerDetailHeader beer={this.filterBeerItems()} />
               <BeerTransactionList transactions={this.filterBeerItems().transactions} />
             </div>
