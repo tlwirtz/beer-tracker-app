@@ -6,6 +6,7 @@ import AddInventory from './AddInventory'
 import RemoveInventory from './RemoveInventory'
 import BeerDetailHeader from './BeerDetailHeader'
 import BeerTransactionList from './BeerTransactionList'
+import DeleteBeer from './DeleteBeer'
 
 class BeerSingle extends React.Component {
   constructor(props) {
@@ -61,6 +62,7 @@ class BeerSingle extends React.Component {
               <div className={levelMain}>
                 <div className={levelLeft}>
                   <BeerDetailHeader beer={beer}/>
+                  <DeleteBeer beer={beer} {...this.props} />
                 </div>
                 <div className={levelRight}>
                   <div className={levelItem}>

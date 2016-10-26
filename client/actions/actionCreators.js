@@ -14,12 +14,14 @@ export const DELETE_BEER = 'DELETE_BEER'
 export const DELETE_BEER_SUCCESS = 'DELETE_BEER_SUCCESS'
 export const DELETE_BEER_FAILURE = 'DELETE_BEER_FAILURE'
 
-const defaultOpts = {
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
+const defaultOpts = () => (Object.assign({},
+  {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
   }
-}
+))
 
 export const deleteBeer = (beerId) => (
   {
@@ -35,10 +37,10 @@ export const deleteBeerSuccess = (beerId) => (
   }
 )
 
-export const deleteBeerFailure = (beerId) => (
+export const deleteBeerFailure = (err) => (
   {
     type: DELETE_BEER_FAILURE,
-    beerId
+    err
   }
 )
 
@@ -119,7 +121,7 @@ export const fetchBeerListFailure = (err) => (
 
 export const sendInventoryTrans = (beer, qty) => (
   (dispatch) => {
-    const opts = Object.create({}, defaultOpts)
+    const opts = defaultOpts()
     opts.method = 'POST'
     opts.body = JSON.stringify({
       type: qty >= 0 ? 'adjust-up' : 'adjust-down',
@@ -139,8 +141,13 @@ export const sendInventoryTrans = (beer, qty) => (
 
 export const deleteBeerReq = (beerId) => (
   (dispatch) => {
+    const opts = defaultOpts()
+    opts.method = 'DELETE'
+
     dispatch(deleteBeer(beerId))
-    return fetch(`${process.env.BEER_TRACKER_API}/api/beer/${beerId}`)
+    return fetch(`${process.env.BEER_TRACKER_API}/api/beer/${beerId}`, opts)
+    .then((response) => dispatch(deleteBeerSuccess(beerId)))
+    .catch((err) => dispatch(deleteBeerFailure(err)))
   }
 )
 
@@ -156,10 +163,10 @@ export const fetchBeers = () => (
 
 export const addBeerReq = (beer) => (
   (dispatch) => {
-    const opts = Object.create({}, defaultOpts)
+    const opts = defaultOpts()
     opts.method = 'POST'
     opts.body = JSON.stringify(beer)
-    
+
     dispatch(addBeer(beer))
     return fetch(`${process.env.BEER_TRACKER_API}/api/beer`, opts)
     .then((response) => response.json())
