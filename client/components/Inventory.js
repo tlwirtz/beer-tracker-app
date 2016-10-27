@@ -4,10 +4,11 @@ import classNames from 'classnames'
 const Inventory = (props) => {
   const classes = classNames({
     'lowInventory': props.qty < 3,
-    'subtitle': true,
-    'is-2': true
+    'title': true,
+    'inventory': true,
+    'has-text-centered': true
   })
-  return <h2 className={classes}>{props.qty}</h2>
+  return <h1 className={classes}>{props.qty}</h1>
 }
 
 export default Inventory

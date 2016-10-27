@@ -47,46 +47,7 @@ class BeerSingle extends React.Component {
       'beerListSingle': true
     })
 
-    const levelMain = classNames('level', 'is-mobile')
-    const levelItem = classNames('level-item', 'has-text-ceneterd')
-    const levelLeft = classNames('level-left')
-    const levelRight = classNames('level-right')
-
-    return (
-        <div>
-          <div onClick={this.beerClick}
-              onMouseEnter={this.onMouseEnterHandle}
-              onMouseLeave={this.onMouseLeaveHandle}
-              className={boxClass}
-              >
-              <div className={levelMain}>
-                <div className={levelLeft}>
-                  <BeerDetailHeader beer={beer}/>
-                  <DeleteBeer beer={beer} {...this.props} />
-                </div>
-                <div className={levelRight}>
-                  <div className={levelItem}>
-                    <AddInventory  beer={beer} {...this.props} />
-                    <br />
-                    <RemoveInventory  beer={beer} {...this.props} />
-                  </div>
-                  <div className={levelItem}>
-                    <Inventory qty={this.calculateInventory()} />
-                  </div>
-                  <div className={levelItem}>
-                  </div>
-                </div>
-              </div>
-              {
-                this.state.showDetail ?
-                <div>
-                  <BeerTransactionList
-                  transactions={beer.transactions.slice(-10).reverse()}/>
-                </div> : null
-              }
-          </div>
-        </div>
-    )
+    return (<h1> A card should go here</h1>)
   }
 }
 

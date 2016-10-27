@@ -12,7 +12,7 @@ class RemoveInventory extends React.Component {
   }
 
   render() {
-    const classes = classNames('level-item', 'subtitle', 'is-2', 'has-centered-text')
+    const classes = classNames( 'subtitle', 'is-2', 'has-text-centered')
     const minusSymbol = classNames('beerTracker-red')
     return (
       <div className={classes}>
