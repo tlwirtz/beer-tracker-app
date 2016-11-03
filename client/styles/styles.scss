@@ -3,60 +3,154 @@
 $body-background: white;
 $primary: $brand-color-darker;
 
-@import "../../node_modules/bulma/bulma";
+// @import "../../node_modules/bulma/bulma";
 
-.beerTrackerNav {
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  display: block;
+  padding: 5px;
+  min-height: 50px;
+  background: #424242;
   color: white;
-  background-color: $brand-color-darker;
+  font-weight: 200;
+}
+
+.flex-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-header-item {
+  flex: 1;
+  align-self: flex-start;
 
   h1 {
-    color: white;
-  }
-
-  a {
-    color: white;
-    &:hover {
-      color: white;
-    }
+    font-weight: 200;
   }
 }
 
-.beerForm, .margin {
-  margin: 1em;
+ul {
+  list-style: none;
 }
 
-.beerListSingle {
-  margin: 1em;
+li {
+  padding-bottom: 20px;
 }
 
-.beerTracker-green {
-  color: $brand-status-colors-ok;
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
 }
 
-.beerTracker-red {
-  color: $brand-status-colors-lowInventory;
+.flex-item {
+  flex: 1 1 10%;
+  align-self: center;
 }
 
-.hovering {
-  border: solid thin $brand-color-darker;
+.flex-title {
+  flex: 6 1 60%;
 }
 
-.beerSingleSelected {
-  border: solid thin $brand-color-darker;
+.flex-item-main {
+  flex: 6 1 50%;
+  max-width: 70%;
+  border: thin solid grey;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgb(222, 222, 222);
+  min-height: 100px;
 }
 
-.lowInventory {
-  color: $brand-status-colors-lowInventory;
+.flex-inventory-container {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  flex-direction: column;
+  min-height: 100%;
+  border: none;
+  margin: 0;
 }
 
-.grey-text {
-  color: $grey-lighter;
+.inventory-headings {
+  font-size: 2em;
+  font-weight: 200;
 }
 
-.purple-background {
-  background-color: $brand-color-darker
+.text-light {
+  font-weight: lighter
 }
 
-.inventory {
-  font-size: 5em;
+.padding-left {
+  padding-left: 1em;
 }
+
+.padding-top {
+  padding-top: 1em;
+}
+
+
+//TODO -- CONTINUE ADDING STYLES HERE
+
+//
+// .beerTrackerNav {
+//   color: white;
+//   background-color: $brand-color-darker;
+//
+//   h1 {
+//     color: white;
+//   }
+//
+//   a {
+//     color: white;
+//     &:hover {
+//       color: white;
+//     }
+//   }
+// }
+//
+// .beerForm, .margin {
+//   margin: 1em;
+// }
+//
+// .beerListSingle {
+//   margin: 1em;
+// }
+//
+// .beerTracker-green {
+//   color: $brand-status-colors-ok;
+// }
+//
+// .beerTracker-red {
+//   color: $brand-status-colors-lowInventory;
+// }
+//
+// .hovering {
+//   border: solid thin $brand-color-darker;
+// }
+//
+// .beerSingleSelected {
+//   border: solid thin $brand-color-darker;
+// }
+//
+// .lowInventory {
+//   color: $brand-status-colors-lowInventory;
+// }
+//
+// .grey-text {
+//   color: $grey-lighter;
+// }
+//
+// .purple-background {
+//   background-color: $brand-color-darker
+// }
+//
+// .inventory {
+//   font-size: 5em;
+// }
