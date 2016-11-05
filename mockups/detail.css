@@ -1,34 +1,7 @@
 /*TODO -- MERGE DETAIL.CSS and STYLE.CSS*/
 
-body {
-  font-family: 'Roboto', sans-serif;
-}
-
 h2 {
   font-size: 4em;
-  font-weight: 200;
-}
-header {
-  display: block;
-  padding: 5px;
-  min-height: 50px;
-  background: #424242;
-  color: white;
-  font-weight: 200;
-}
-
-.flex-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.flex-header-item {
-  flex: 1;
-  align-self: flex-start;
-}
-
-.flex-header-item > h1 {
   font-weight: 200;
 }
 
@@ -40,47 +13,15 @@ li {
   padding-bottom: 20px;
 }
 
-.flex-container {
-  display: flex;
-  justify-content: space-around;
-  align-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-}
-
-.flex-item {
-  flex: 1 1 10%;
-  align-self: center;
-}
-
-.flex-title {
-  flex: 6 1 60%;
-}
-
-.flex-item-main {
+/* TODO -- try to normalize with flex-item-main */
+.flex-detail-header-main {
   flex: 6 1 50%;
   max-width: 70%;
   min-height: 100px;
 }
 
-.flex-inventory-container {
-  display: flex;
-  justify-content: space-around;
-  align-content: center;
-  flex-direction: column;
-  min-height: 100%;
-  border: none;
-  margin: 0;
-}
 .placeholder-box {
   background-color: grey;
-}
-
-
-.inventory-headings {
-  font-size: 2em;
-  font-weight: 200;
 }
 
 .inventory {
@@ -109,18 +50,7 @@ li {
   min-height: 150px;
 }
 
-.padding-left {
-  padding-left: 1em;
-}
-
-.text-light {
-  font-weight: lighter
-}
-
 @media (max-width: 400px) {
-  .flex-container {
-    flex-direction: column;
-  }
 
   .graph {
     flex: auto;
@@ -132,7 +62,4 @@ li {
     flex-direction: column;
   }
 
-  .flex-item-main {
-    width: 100%
-  }
 }

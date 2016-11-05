@@ -67,7 +67,6 @@ li {
   justify-content: space-around;
   align-content: flex-end;
   flex-direction: column;
-  min-height: 100%;
   border: none;
   margin: 0;
   padding-right: 10px;
@@ -78,13 +77,6 @@ li {
   font-size: 2em;
   font-weight: 200;
 }
-
-.inventory {
-  flex: auto;
-  text-align: center;
-  min-width: 3em;
-}
-
 
 .flex-auto {
   flex: auto;
@@ -103,10 +95,6 @@ li {
 @media (max-width: 400px) {
   .flex-container {
     flex-direction: column;
-  }
-
-  .graph {
-    width: 100%;
   }
 
   .flex-item-main {
