@@ -14,6 +14,9 @@ class AddBeerForm extends React.Component {
 
   handleClick() {
     this.props.addBeerReq(this.state.newBeer)
+    this.refs.beer.value = ''
+    const newState = this.state.newBeer.name = null;
+    this.setState({ newState })
   }
 
   inputNameChange(e) {
@@ -22,17 +25,15 @@ class AddBeerForm extends React.Component {
   }
 
   render() {
-    const controlGroup = classNames('control', 'is-grouped', 'level-item', 'beerForm')
-    const control = classNames('control')
-    const input = classNames('input')
-    const button = classNames('button', 'is-info')
+    const flex = classNames('flex-container')
+    const button = classNames('add-beer')
     return (
-      <div className={controlGroup}>
-        <p className={control}>
-          <input className={input} onChange={this.inputNameChange} type="text" placeholder="Enter Beer Name" />
+      <div className={flex}>
+        <p >
+          <input ref="beer" onChange={this.inputNameChange} type="text" placeholder="Enter Beer Name" />
         </p>
-        <p className={control}>
-          <a className={button} onClick={this.handleClick}>Add Beer</a>
+        <p>
+          <button  className={button} onClick={this.handleClick}>Add Beer</button>
         </p>
       </div>
     )

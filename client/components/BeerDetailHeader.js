@@ -5,13 +5,14 @@ import Inventory from './Inventory'
 import AddInventroy from './AddInventory'
 
 const BeerDetailHeader = (props) => {
-  const levelItem = classNames('level-item')
-  const beerSingleTitle = classNames('title')
+  const flexTitle = classNames('flex-title', 'padding-left')
+  const heading = classNames('small-margin', 'inventory-headings')
+  const subheading = classNames('small-margin', 'text-light')
 
   return (
-    <div className={levelItem}>
-      <h2 className={beerSingleTitle}>{props.beer.name}</h2>
-      <p>{props.beer._id}</p>
+    <div className={flexTitle}>
+      <h1 className={heading}>{props.beer.name}</h1>
+      <p className={subheading}>{props.beer._id}</p>
     </div>
   )
 }

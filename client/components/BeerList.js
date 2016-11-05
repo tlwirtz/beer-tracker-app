@@ -8,15 +8,17 @@ class BeerList extends React.Component{
   render() {
     return (
       <div>
+        <ul>
         { this.props.beers.fetchingBeers ?
-          <h2>Loading Beers</h2> :
+          <li><h2>Loading Beers</h2></li>:
           this.props.beers.items.map((beer) =>
-          <BeerSingle
+            <BeerSingle
                 key={beer._id}
                 beer={beer}
                 {...this.props}/>
               )
         }
+        </ul>
       </div>
     )
   }

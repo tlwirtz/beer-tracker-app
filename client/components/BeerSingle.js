@@ -21,7 +21,7 @@ class BeerSingle extends React.Component {
     this.calculateInventory = this.calculateInventory.bind(this)
   }
   beerClick(e) {
-    //TODO -- should not update state if the '-' or '+' is clicked
+    //TODO -- should move into a Link Component and go to detail page
     this.props.selectBeer(this.props.beer._id)
     this.setState({showDetail: !this.state.showDetail})
   }
@@ -40,52 +40,27 @@ class BeerSingle extends React.Component {
 
   render() {
     const { beer, beers } = this.props
-    const boxClass = classNames({
-      'hovering': this.state.hovering,
-      'beerSingleSelected': beers.selectedBeer === beer._id,
-      'box': true,
-      'beerListSingle': true
-    })
-
-    const levelMain = classNames('level', 'is-mobile')
-    const levelItem = classNames('level-item', 'has-text-ceneterd')
-    const levelLeft = classNames('level-left')
-    const levelRight = classNames('level-right')
+    const flex = classNames('flex-container')
+    const flexItem = classNames('flex-item')
+    const flexItemMain = classNames('flex-item-main')
 
     return (
-        <div>
+      <li>
+        <div className={flex}>
           <div onClick={this.beerClick}
               onMouseEnter={this.onMouseEnterHandle}
               onMouseLeave={this.onMouseLeaveHandle}
-              className={boxClass}
+              className={flexItemMain}
               >
-              <div className={levelMain}>
-                <div className={levelLeft}>
-                  <BeerDetailHeader beer={beer}/>
-                  <DeleteBeer beer={beer} {...this.props} />
-                </div>
-                <div className={levelRight}>
-                  <div className={levelItem}>
-                    <AddInventory  beer={beer} {...this.props} />
-                    <br />
-                    <RemoveInventory  beer={beer} {...this.props} />
-                  </div>
-                  <div className={levelItem}>
-                    <Inventory qty={this.calculateInventory()} />
-                  </div>
-                  <div className={levelItem}>
-                  </div>
+              <div className={flex}>
+                <BeerDetailHeader beer={beer} />
+                <div className={flexItem}>
+                  <Inventory qty={this.calculateInventory()} />
                 </div>
               </div>
-              {
-                this.state.showDetail ?
-                <div>
-                  <BeerTransactionList
-                  transactions={beer.transactions.slice(-10).reverse()}/>
-                </div> : null
-              }
+            </div>
           </div>
-        </div>
+        </li>
     )
   }
 }

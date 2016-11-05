@@ -2,13 +2,20 @@ import React  from 'react'
 import classNames from 'classnames'
 
 const Inventory = (props) => {
-  const classes = classNames({
+  const inventory = classNames({
     'lowInventory': props.qty < 3,
-    'title': true,
-    'inventory': true,
-    'has-text-centered': true
+    'inventory-headings': true
   })
-  return <h1 className={classes}>{props.qty}</h1>
+  const inventoryBox = classNames('flex-inventory-container', 'flex-row')
+  const auto = classNames('flex-auto')
+
+  return (
+    <div className={inventoryBox}>
+      <div className={auto}></div>
+      <h1 className={inventory}>{props.qty}</h1>
+      <div className={auto}></div>
+    </div>
+  )
 }
 
 export default Inventory
