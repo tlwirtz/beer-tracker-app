@@ -8,10 +8,6 @@ class BeerTransactionList extends React.Component {
   }
 
   render() {
-    const box = classNames('box')
-    const content = classNames('content')
-    const container = classNames('container')
-    const subtitle = classNames('subtitle', 'is-3', 'has-text-centered', 'grey-text')
 
     return (
       <div>
@@ -20,7 +16,7 @@ class BeerTransactionList extends React.Component {
           this.props.transactions.map((transaction) =>
             <BeerTransaction transaction={transaction} key={transaction.id}/>
           ) :
-          <h2 className={subtitle}>No Transactions Found</h2>
+          <h2 >No Transactions Found</h2>
         }
       </div>
     )
