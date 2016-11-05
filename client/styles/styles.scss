@@ -1,9 +1,8 @@
+@import "normalize";
 @import "theme";
 
 $body-background: white;
 $primary: $brand-color-darker;
-
-// @import "../../node_modules/bulma/bulma";
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -16,6 +15,39 @@ header {
   background: #424242;
   color: white;
   font-weight: 200;
+
+  a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        color: white;
+      }
+    }
+}
+
+input[type=text] {
+    border: none;
+    outline: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    border-bottom: 1px solid #424242;
+}
+
+.add-beer {
+  background-color: #82DD86;
+   border: none;
+   color: white;
+   padding: 10px 26px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   cursor: pointer;
+   border-radius: 3px;
+   outline: none;
+   &:hover {
+     background-color: #4CAF50;
+   }
 }
 
 .flex-header {
@@ -30,6 +62,18 @@ header {
 
   h1 {
     font-weight: 200;
+  }
+}
+
+.flex-header-item-right {
+  flex: 0 0 10%;
+
+  h3 {
+    font-weight: 200;
+    color: #A2A2A2;
+    &:hover {
+      color: white;
+    }
   }
 }
 
@@ -73,7 +117,6 @@ li {
   justify-content: space-around;
   align-content: center;
   flex-direction: column;
-  min-height: 100%;
   border: none;
   margin: 0;
 }
@@ -95,6 +138,9 @@ li {
   padding-top: 1em;
 }
 
+.lowInventory {
+  color: $brand-status-colors-lowInventory;
+}
 
 //TODO -- CONTINUE ADDING STYLES HERE
 
@@ -139,9 +185,7 @@ li {
 //   border: solid thin $brand-color-darker;
 // }
 //
-// .lowInventory {
-//   color: $brand-status-colors-lowInventory;
-// }
+
 //
 // .grey-text {
 //   color: $grey-lighter;
