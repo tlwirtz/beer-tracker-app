@@ -5,7 +5,7 @@ import Inventory from './Inventory'
 import AddInventroy from './AddInventory'
 
 const BeerDetailHeader = (props) => {
-  const flexTitle = classNames('flex-title', 'padding-left')
+  const flexTitle = classNames('flex-title')
   const heading = classNames('small-margin', 'inventory-headings')
   const subheading = classNames('small-margin', 'text-light')
 

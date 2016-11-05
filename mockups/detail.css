@@ -2,6 +2,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+h2 {
+  font-size: 4em;
+  font-weight: 200;
+}
 header {
   display: block;
   padding: 5px;
@@ -55,24 +59,22 @@ li {
 .flex-item-main {
   flex: 6 1 50%;
   max-width: 70%;
-  border: thin solid grey;
-  border-radius: 5px;
-  box-shadow: 2px 2px 3px rgb(222, 222, 222);
   min-height: 100px;
-  padding-left: 10px;
 }
 
 .flex-inventory-container {
   display: flex;
   justify-content: space-around;
-  align-content: flex-end;
+  align-content: center;
   flex-direction: column;
   min-height: 100%;
   border: none;
   margin: 0;
-  padding-right: 10px;
-  text-align: right;
 }
+.placeholder-box {
+  background-color: grey;
+}
+
 
 .inventory-headings {
   font-size: 2em;
@@ -85,11 +87,24 @@ li {
   min-width: 3em;
 }
 
-
 .flex-auto {
   flex: auto;
   min-width: 0.75em;
   min-height: 1em;
+}
+
+.graph-container {
+    display: flex;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+}
+
+.graph {
+  flex: 0 0 40%;
+  min-height: 150px;
 }
 
 .padding-left {
@@ -106,7 +121,13 @@ li {
   }
 
   .graph {
+    flex: auto;
     width: 100%;
+  }
+
+  .graph-container {
+    width: 100%;
+    flex-direction: column;
   }
 
   .flex-item-main {

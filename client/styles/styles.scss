@@ -110,15 +110,19 @@ li {
   border-radius: 5px;
   box-shadow: 2px 2px 3px rgb(222, 222, 222);
   min-height: 100px;
+  padding-left: 10px;
+
 }
 
 .flex-inventory-container {
   display: flex;
   justify-content: space-around;
-  align-content: center;
+  align-content: flex-end;
   flex-direction: column;
   border: none;
   margin: 0;
+  padding-right: 10px;
+  text-align: right;
 }
 
 .inventory-headings {
@@ -142,59 +146,17 @@ li {
   color: $brand-status-colors-lowInventory;
 }
 
-//TODO -- CONTINUE ADDING STYLES HERE
-
-//
-// .beerTrackerNav {
-//   color: white;
-//   background-color: $brand-color-darker;
-//
-//   h1 {
-//     color: white;
+//TODO -- this doesn't work as expected
+// @media (max-width: 400px) {
+//   .flex-container {
+//     flex-direction: column;
 //   }
 //
-//   a {
-//     color: white;
-//     &:hover {
-//       color: white;
-//     }
+//   .graph {
+//     width: 100%;
+//   }
+//
+//   .flex-item-main {
+//     width: 100%
 //   }
 // }
-//
-// .beerForm, .margin {
-//   margin: 1em;
-// }
-//
-// .beerListSingle {
-//   margin: 1em;
-// }
-//
-// .beerTracker-green {
-//   color: $brand-status-colors-ok;
-// }
-//
-// .beerTracker-red {
-//   color: $brand-status-colors-lowInventory;
-// }
-  //
-  // .hovering {
-  //   border: solid thin $brand-color-darker;
-  // }
-  //
-  // .beerSingleSelected {
-  //   border: solid thin $brand-color-darker;
-  // }
-  //
-
-  //
-  // .grey-text {
-  //   color: $grey-lighter;
-  // }
-  //
-  // .purple-background {
-  //   background-color: $brand-color-darker
-  // }
-  //
-  // .inventory {
-  //   font-size: 5em;
-  // }
