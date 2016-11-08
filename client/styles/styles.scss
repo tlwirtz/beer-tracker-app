@@ -7,6 +7,10 @@ $primary: $brand-color-darker;
 body {
   font-family: 'Roboto', sans-serif;
 }
+h2 {
+  font-size: 4em;
+  font-weight: 200;
+}
 
 header {
   display: block;
@@ -63,6 +67,10 @@ input[type=text] {
   h1 {
     font-weight: 200;
   }
+  
+  h2 {
+    font-weight: 200;
+  }
 }
 
 .flex-header-item-right {
@@ -79,6 +87,7 @@ input[type=text] {
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 li {
@@ -111,7 +120,6 @@ li {
   box-shadow: 2px 2px 3px rgb(222, 222, 222);
   min-height: 100px;
   padding-left: 10px;
-
 }
 
 .flex-inventory-container {
@@ -144,6 +152,60 @@ li {
 
 .lowInventory {
   color: $brand-status-colors-lowInventory;
+}
+
+.flex-detail-header-main {
+  flex: 6 1 50%;
+  max-width: 70%;
+  min-height: 100px;
+}
+
+.placeholder-box {
+  background-color: grey;
+}
+
+.inventory {
+  flex: auto;
+  text-align: center;
+  min-width: 3em;
+}
+
+.flex-auto {
+  flex: auto;
+  min-width: 0.75em;
+  min-height: 1em;
+}
+
+.graph-container, .transaction-container {
+    display: flex;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+}
+
+.graph {
+  flex: 0 0 40%;
+  min-height: 150px;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.transaction {
+  flex: 1 1 90%;
+  max-width: 90%;
+  min-height: 0px;
 }
 
 // TODO -- this doesn't work as expected
