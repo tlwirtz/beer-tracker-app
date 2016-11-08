@@ -6,7 +6,7 @@ const Heading = (props) => {
   const flexTitle = classNames('flex-title')
   const container = classNames('flex-container')
   const heading = classNames('inventory-headings', 'small-margins')
-  
+
   return (
   <div className={container}>
     <div className={header}>
