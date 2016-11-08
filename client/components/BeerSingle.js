@@ -13,18 +13,12 @@ class BeerSingle extends React.Component {
     super(props)
     this.state = {
       hovering: false,
-      showDetail: false
     }
-    this.beerClick = this.beerClick.bind(this)
     this.onMouseLeaveHandle = this.onMouseLeaveHandle.bind(this)
     this.onMouseEnterHandle = this.onMouseEnterHandle.bind(this)
     this.calculateInventory = this.calculateInventory.bind(this)
   }
-  beerClick(e) {
-    //TODO -- should move into a Link Component and go to detail page
-    this.props.selectBeer(this.props.beer._id)
-    this.setState({showDetail: !this.state.showDetail})
-  }
+
   onMouseLeaveHandle() {
     this.setState({hovering: false})
   }
@@ -45,13 +39,13 @@ class BeerSingle extends React.Component {
     const flexItemMain = classNames('flex-item-main')
 
     return (
-      <li>
-        <div className={flex}>
-          <div onClick={this.beerClick}
-              onMouseEnter={this.onMouseEnterHandle}
+      <Link to={`/beers/${beer._id}`}>
+        <li>
+          <div className={flex}>
+            <div onMouseEnter={this.onMouseEnterHandle}
               onMouseLeave={this.onMouseLeaveHandle}
               className={flexItemMain}
-              >
+            >
               <div className={flex}>
                 <BeerDetailHeader beer={beer} />
                 <div className={flexItem}>
@@ -61,6 +55,7 @@ class BeerSingle extends React.Component {
             </div>
           </div>
         </li>
+      </Link>
     )
   }
 }
