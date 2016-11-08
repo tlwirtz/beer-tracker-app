@@ -214,6 +214,11 @@ li {
   min-height: 0px;
 }
 
+.hovering {
+  border-color: $brand-neutral-colors-3-t;
+  color: $brand-neutral-colors-3-t;
+}
+
 // TODO -- this doesn't work as expected
 // @media (max-width: 400px) {
 //   .flex-container {

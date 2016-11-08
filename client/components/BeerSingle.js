@@ -36,7 +36,10 @@ class BeerSingle extends React.Component {
     const { beer, beers } = this.props
     const flex = classNames('flex-container')
     const flexItem = classNames('flex-item')
-    const flexItemMain = classNames('flex-item-main')
+    const flexItemMain = classNames({
+      'hovering': this.state.hovering,
+      'flex-item-main': true,
+    })
 
     return (
       <Link to={`/beers/${beer._id}`}>
