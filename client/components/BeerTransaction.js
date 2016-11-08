@@ -4,13 +4,7 @@ import classNames from 'classnames'
 const BeerTransaction = (props) => {
   const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
   const transDate = new Date(props.transaction.dateTime).toLocaleDateString('en-US', options)
-  const level = classNames('level', 'is-mobile')
-  const heading = classNames('heading')
-  const subtitle = classNames('subtitle')
-  const levelItem = classNames('level-item')
-  const levelItemCentered = classNames('level-item', 'has-text-centered')
-  const levelRight = classNames('level-right', 'has-text-centered')
-  const icon = classNames('icon')
+  const icon = classNames('icon', 'text-center')
   const arrow = classNames({
     'fa': true,
     'fa-arrow-up': props.transaction.type === 'adjust-up',
@@ -19,30 +13,33 @@ const BeerTransaction = (props) => {
     'beer-tracker-red': props.transaction.type === 'adjust-down'
   })
 
+  const flex = classNames('flex-container')
+  const flexItem = classNames('flex-item')
+  const flexItemMain = classNames('flex-item-main', 'transaction')
+  const subheading = classNames('small-margin', 'text-light', 'text-center')
+
+
   return (
-    <div>
-    <div className={level}>
-      <div className={levelItem}>
-        <p className={heading}>date</p><br />
-        <p className={subtitle}>{transDate}</p>
+    <li>
+      <div className={flex}>
+        <div className={flexItemMain}>
+          <div className={flex}>
+            <div className={flexItem}>
+              <p className={subheading}>{transDate}</p>
+            </div>
+            <div className={flexItem}>
+              <p className={subheading}>{props.transaction.type}</p>
+            </div>
+            <div className={flexItem}>
+              <p className={subheading}>{props.transaction.qty}</p>
+            </div>
+            <div className={flexItem}>
+              <p className={icon}><span className={arrow}></span></p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className={levelItemCentered}>
-        <p className={heading}>qty</p><br />
-        <p className={subtitle}>{props.transaction.qty}</p>
-      </div>
-      <div className={levelItemCentered}>
-        <p className={heading}>type</p><br />
-        <p className={subtitle}>{props.transaction.type}</p>
-      </div>
-      <div className={levelRight}>
-        <p className={subtitle}>
-        <span className={icon}>
-            <i className={arrow}></i>
-          </span></p>
-      </div>
-    </div>
-    <hr />
-    </div>
+    </li>
   )
 }
 
