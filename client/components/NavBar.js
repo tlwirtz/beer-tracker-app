@@ -16,7 +16,7 @@ class NavBar extends React.Component {
       <header>
         <div className={header}>
           <div className={headerItem}>
-            <h1>Nav Bar</h1>
+            <h1>Beer Tracker</h1>
           </div>
           <div className={headerRight}>
           <Link to={'/beers'}><h3>Beers</h3></Link>
