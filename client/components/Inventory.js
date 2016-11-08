@@ -10,10 +10,16 @@ const Inventory = (props) => {
   const auto = classNames('flex-auto')
 
   return (
-    <div className={inventoryBox}>
-      <div className={auto}></div>
-      <h1 className={inventory}>{props.qty}</h1>
-      <div className={auto}></div>
+    <div>
+      {
+        props.detailPage ? <h2>{props.qty}</h2>
+        :
+        <div className={inventoryBox}>
+          <div className={auto}></div>
+          <h1 className={inventory}>{props.qty}</h1>
+          <div className={auto}></div>
+        </div>
+      }
     </div>
   )
 }
