@@ -12,11 +12,11 @@ class AddInventory extends React.Component {
   }
 
   render() {
-    const classes = classNames('subtitle', 'is-2', 'has-text-centered')
+
     const symbol = classNames('beerTracker-green')
     return (
-      <div className={classes}>
-        <a onClick={this.handleClick} key={this.props.beer._id}>
+      <div>
+        <a href='#' onClick={this.handleClick} key={this.props.beer._id}>
           <h2 className={symbol}>+</h2>
         </a>
       </div>
