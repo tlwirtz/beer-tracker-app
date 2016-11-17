@@ -219,6 +219,13 @@ li {
   color: $brand-neutral-colors-3-t;
 }
 
+.beerTracker-green {
+  color: $brand-status-colors-ok;
+}
+.beerTracker-red {
+  color: $brand-status-colors-lowInventory;
+}
+
 // TODO -- this doesn't work as expected
 // @media (max-width: 400px) {
 //   .flex-container {
