@@ -2,7 +2,6 @@ import React from 'react'
 import classNames from 'classnames'
 import RemoveInventory from './RemoveInventory'
 import Inventory from './Inventory'
-import AddInventroy from './AddInventory'
 
 const BeerDetailHeader = (props) => {
   const flexTitle = classNames('flex-title')
