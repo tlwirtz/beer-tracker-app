@@ -4,6 +4,8 @@ import BeerDetailHeader from './BeerDetailHeader'
 import BeerTransactionList from './BeerTransactionList'
 import Inventory from './Inventory'
 import GraphContainer from './GraphContainer'
+import AddInventory from './AddInventory'
+import RemoveInventory from './RemoveInventory'
 
 class BeerDetailContainer extends React.Component {
   constructor(props) {
@@ -37,6 +39,8 @@ class BeerDetailContainer extends React.Component {
               <div className={headerContainer}>
                 <BeerDetailHeader beer={this.filterBeerItems()} />
               </div>
+              <AddInventory beer={this.filterBeerItems()} {...this.props}/>
+              <RemoveInventory beer={this.filterBeerItems()} {...this.props} />
               <Inventory detailPage={true} qty={this.calculateInventory()} />
             </div>
             <GraphContainer />
