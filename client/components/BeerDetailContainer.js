@@ -6,6 +6,7 @@ import Inventory from './Inventory'
 import GraphContainer from './GraphContainer'
 import AddInventory from './AddInventory'
 import RemoveInventory from './RemoveInventory'
+import BeerGraph from './BeerGraph'
 
 class BeerDetailContainer extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class BeerDetailContainer extends React.Component {
 
     this.filterBeerItems.bind(this)
     this.calculateInventory.bind(this)
+    this.formatForGraph.bind(this)
   }
 
   filterBeerItems() {
@@ -25,6 +27,39 @@ class BeerDetailContainer extends React.Component {
     return beer.transactions
       .map(((trans) => trans.type === 'adjust-up' ? trans.qty : -(trans.qty)))
       .reduce((a, b) => a + b, 0)
+  }
+
+  formatForGraph() {
+    //THIS IS SUPER UGLY -- FUNCTIONALIZE!
+    const beer = this.filterBeerItems();
+
+    const posOrNeg = (item) => {
+      return item.type === 'adjust-up' ? item.qty : -(item.qty)
+    }
+
+    const totalDailyTrans = (dailyTrans, trans) => {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const transDate = new Date(trans.dateTime).toLocaleDateString('en-US', options)
+      dailyTrans[transDate] ? dailyTrans[transDate] += posOrNeg(trans) : dailyTrans[transDate] = posOrNeg(trans)
+      return dailyTrans
+    }
+
+    const dailyTransactions = beer.transactions.reduce(totalDailyTrans, {})
+    
+    Object.keys(dailyTransactions).reduce((inventory, key) => {
+      inventory += dailyTransactions[key]
+      dailyTransactions[key] = inventory
+      return inventory
+    }, 0)
+
+    const finalInventory = Object.keys(dailyTransactions).reduce((inventory, key) => {
+        console.log('inventory', inventory)
+        inventory.push({date: key, qty: dailyTransactions[key]})
+        return inventory
+    }, [])
+
+    console.log(finalInventory)
+    return finalInventory
   }
 
   render() {
@@ -43,7 +78,7 @@ class BeerDetailContainer extends React.Component {
               <RemoveInventory beer={this.filterBeerItems()} {...this.props} />
               <Inventory detailPage={true} qty={this.calculateInventory()} />
             </div>
-            <GraphContainer />
+            <BeerGraph beerData={this.formatForGraph()}/>
             <BeerTransactionList transactions={this.filterBeerItems().transactions} />
           </div>
         }
