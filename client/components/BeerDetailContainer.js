@@ -8,6 +8,8 @@ import AddInventory from './AddInventory'
 import RemoveInventory from './RemoveInventory'
 import BeerGraph from './BeerGraph'
 
+import * as _ from 'ramda'
+
 class BeerDetailContainer extends React.Component {
   constructor(props) {
     super(props)
@@ -32,20 +34,20 @@ class BeerDetailContainer extends React.Component {
   formatForGraph() {
     //THIS IS SUPER UGLY -- FUNCTIONALIZE!
     const beer = this.filterBeerItems();
-
-    const posOrNeg = (item) => {
-      return item.type === 'adjust-up' ? item.qty : -(item.qty)
-    }
+    const posOrNeg = _.curry((type, qty) => type === 'adjust-up' ? qty : -(qty))
+    const formatDate = _.curry((options, date) => new Date(date).toLocaleDateString('en-US', options))
 
     const totalDailyTrans = (dailyTrans, trans) => {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      const transDate = new Date(trans.dateTime).toLocaleDateString('en-US', options)
-      dailyTrans[transDate] ? dailyTrans[transDate] += posOrNeg(trans) : dailyTrans[transDate] = posOrNeg(trans)
+      const shortDate = formatDate(options)
+      const transDate = shortDate(trans.dateTime)
+      const checkQty = posOrNeg(trans.type)
+      dailyTrans[transDate] ? dailyTrans[transDate] += checkQty(trans.qty) : dailyTrans[transDate] = checkQty(trans.qty)
       return dailyTrans
     }
 
     const dailyTransactions = beer.transactions.reduce(totalDailyTrans, {})
-    
+
     Object.keys(dailyTransactions).reduce((inventory, key) => {
       inventory += dailyTransactions[key]
       dailyTransactions[key] = inventory
