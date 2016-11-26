@@ -1,5 +1,5 @@
 import React from 'react'
-import { VictoryChart, VictoryLine, VictoryLabel, VictoryScatter } from 'victory'
+import { VictoryGroup, VictoryChart, VictoryLine, VictoryGraph, VictoryVoronoiTooltip  } from 'victory'
 
 class BeerGraph extends React.Component {
   constructor(props) {
@@ -9,7 +9,12 @@ class BeerGraph extends React.Component {
   render() {
 
     return (
-        <VictoryLine width={800} height={175} interpolation="linear" data={this.props.beerData || [{date: Date.now(), qty: 0}]} x="date" y={(datum) => datum.qty} />
+          <VictoryLine
+            width={800}
+            height={175}
+            interpolation="linear"
+            data={this.props.beerData || [{date: Date.now(), qty: 0}]}
+            x="date" y={(datum) => datum.qty} />
     )
 
   }
