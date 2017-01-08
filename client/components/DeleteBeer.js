@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 import classNames from 'classnames'
 
 class DeleteBeer extends React.Component {
@@ -8,13 +9,13 @@ class DeleteBeer extends React.Component {
   }
 
   handleClick() {
-    this.props.deleteBeerReq(this.props.beer._id)
+    this.props.deleteBeerReq(this.props.beer)
   }
 
   render() {
     return (
       <div>
-        <a onClick={this.handleClick} key={this.props.beer._id}>Delete Me</a>
+        <Link to={'/beers'} onClick={this.handleClick} key={this.props.beer}>Delete Me</Link>
       </div>
     )
   }

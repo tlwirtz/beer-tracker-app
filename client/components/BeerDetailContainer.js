@@ -7,6 +7,7 @@ import GraphContainer from './GraphContainer'
 import AddInventory from './AddInventory'
 import RemoveInventory from './RemoveInventory'
 import BeerGraph from './BeerGraph'
+import DeleteBeer from './DeleteBeer'
 
 import * as R from 'ramda'
 
@@ -108,6 +109,7 @@ class BeerDetailContainer extends React.Component {
               <div className={headerContainer}>
                 <BeerDetailHeader beer={this.filterBeerItems()} />
               </div>
+              <DeleteBeer beer={this.props.params.beerId} {...this.props}/>
               <AddInventory beer={this.filterBeerItems()} {...this.props}/>
               <RemoveInventory beer={this.filterBeerItems()} {...this.props} />
               <Inventory detailPage={true} qty={this.calculateInventory()} />
