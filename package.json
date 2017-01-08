@@ -9,7 +9,8 @@
     "test": "NODE_ENV=production mocha './tests/**/*.spec.js' --compilers js:babel-core/register",
     "clean": "rimraf static",
     "start": "node devServer.js",
-    "tunnel": "browser-sync start --proxy localhost:7770 --tunnel wesbos"
+    "tunnel": "browser-sync start --proxy localhost:7770 --tunnel wesbos",
+    "gh-pages": "gh-pages -d ./build"
   },
   "repository": {
     "type": "git",

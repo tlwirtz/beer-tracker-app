@@ -8,7 +8,7 @@ module.exports = {
     './client/beerTracker'
   ],
   output: {
-    path: path.join(__dirname, 'static'),
+    path: path.join(__dirname, 'build', 'static'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
