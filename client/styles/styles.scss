@@ -222,9 +222,27 @@ li {
 .beerTracker-green {
   color: $brand-status-colors-ok;
 }
+
 .beerTracker-red {
   color: $brand-status-colors-lowInventory;
 }
+
+.delete-button {
+  border: thin solid $brand-status-colors-lowInventory;
+  border-radius: 2px;
+  color: $brand-status-colors-lowInventory;
+  background-color: white;
+  padding: 0.75em;
+  cursor: pointer;
+  &:hover {
+    border-color: darken($brand-status-colors-lowInventory, 20%);
+  }
+}
+
+.delete-text-dark {
+    color: darken($brand-status-colors-lowInventory, 20%);
+}
+
 
 // TODO -- this doesn't work as expected
 // @media (max-width: 400px) {

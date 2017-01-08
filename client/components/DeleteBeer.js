@@ -6,6 +6,15 @@ class DeleteBeer extends React.Component {
   constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
+    this.handleHover = this.handleHover.bind(this)
+    this.state = {
+      isHovering: false
+    }
+  }
+
+  handleHover() {
+    const { isHovering } = this.state
+    this.setState({ isHovering: !isHovering })
   }
 
   handleClick() {
@@ -13,9 +22,23 @@ class DeleteBeer extends React.Component {
   }
 
   render() {
+    const linkClass = classNames({
+      'delete-text-dark': this.state.isHovering,
+      'beerTracker-red': !this.state.isHovering,
+    })
     return (
       <div>
-        <Link to={'/beers'} onClick={this.handleClick} key={this.props.beer}>Delete Beer</Link>
+        <button
+          className="delete-button"
+          onMouseEnter={this.handleHover}
+          onMouseLeave={this.handleHover}
+          >
+          <Link
+            className={linkClass}
+            to={'/beers'}
+            onClick={this.handleClick}
+            key={this.props.beer}>Delete Beer</Link>
+        </button>
       </div>
     )
   }

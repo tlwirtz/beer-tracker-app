@@ -108,8 +108,8 @@ class BeerDetailContainer extends React.Component {
             <div className={flex}>
               <div className={headerContainer}>
                 <BeerDetailHeader beer={this.filterBeerItems()} />
+                <DeleteBeer beer={this.props.params.beerId} {...this.props}/>
               </div>
-              <DeleteBeer beer={this.props.params.beerId} {...this.props}/>
               <AddInventory beer={this.filterBeerItems()} {...this.props}/>
               <RemoveInventory beer={this.filterBeerItems()} {...this.props} />
               <Inventory detailPage={true} qty={this.calculateInventory()} />
