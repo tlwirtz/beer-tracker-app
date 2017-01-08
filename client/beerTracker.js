@@ -17,7 +17,7 @@ const router = (
   <Provider store={store}>
     <Router history={history}>
     <Route path="/" component={App}>
-      <IndexRoute component={BeerStatsContainer}></IndexRoute>
+      <IndexRoute component={ManageBeers}></IndexRoute>
       <Route path="beers" component={ManageBeers}></Route>
       <Route path="/beers/:beerId" component={BeerDetailContainer}></Route>
       <Route path="devices" component={ManageDevices}></Route>
