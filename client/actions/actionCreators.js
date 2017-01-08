@@ -105,7 +105,6 @@ export const fetchBeerList = () => (
 )
 
 export const fetchBeerListSuccess = (beers) => {
-  console.log('beer success', beers)
   return {
     type: FETCH_BEER_LIST_SUCCESS,
     beers

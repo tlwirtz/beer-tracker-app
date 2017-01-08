@@ -15,7 +15,7 @@ class BeerTransactionList extends React.Component {
         <ul>
           {
             this.props.transactions.length > 0 ?
-            this.props.transactions.map((transaction) =>
+            this.props.transactions.reverse().map((transaction) =>
               <BeerTransaction transaction={transaction} key={transaction.id}/>
             ) :
             <Heading text="No Transactions Found" />
