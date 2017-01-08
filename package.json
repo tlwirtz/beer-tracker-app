@@ -7,7 +7,7 @@
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
     "test": "NODE_ENV=production mocha './tests/**/*.spec.js' --compilers js:babel-core/register",
-    "clean": "rimraf dist",
+    "clean": "rimraf static",
     "start": "node devServer.js",
     "tunnel": "browser-sync start --proxy localhost:7770 --tunnel wesbos"
   },
@@ -39,6 +39,7 @@
     "eslint-plugin-react": "^5.0.1",
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
+    "gh-pages": "^0.12.0",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "node-sass": "^3.10.1",
