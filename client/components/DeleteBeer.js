@@ -15,7 +15,7 @@ class DeleteBeer extends React.Component {
   render() {
     return (
       <div>
-        <Link to={'/beers'} onClick={this.handleClick} key={this.props.beer}>Delete Me</Link>
+        <Link to={'/beers'} onClick={this.handleClick} key={this.props.beer}>Delete Beer</Link>
       </div>
     )
   }
