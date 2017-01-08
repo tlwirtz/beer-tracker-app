@@ -8,8 +8,10 @@ import App from './components/App'
 import ManageBeers from './components/ManageBeers'
 import ManageDevices from './components/ManageDevices'
 import { fetchBeers } from './actions/actionCreators'
-import BeerStatsContainer from './components/BeerStatsContainer'
 import BeerDetailContainer from './components/BeerDetailContainer'
+
+//TODO -- this component isn't ready yet
+import BeerStatsContainer from './components/BeerStatsContainer'
 
 store.dispatch(fetchBeers())
 

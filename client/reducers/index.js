@@ -37,13 +37,13 @@ const beers = (state = Immutable.Map({}), action) => {
     case ADD_BEER_SUCCESS:
       return addBeer(state, action.beer )
     case ADD_BEER:
-      return state; //TODO -- update me
+      return state;
     case ADD_BEER_FAILURE:
-      return state; //TODO -- update me
+      return state; 
     case FETCH_BEER_LIST:
       return state.set('fetchingBeers', true)
     case FETCH_BEER_LIST_FAILURE:
-      return state //TODO -- udpate me
+      return state
     case FETCH_BEER_LIST_SUCCESS:
       return updateBeerList(state, action.beers)
     case SELECT_BEER:
@@ -55,11 +55,11 @@ const beers = (state = Immutable.Map({}), action) => {
     case ADD_INVENTORY_TRANSACTION_FAILURE:
       return state.set('updatingInventory', 'false')
     case DELETE_BEER:
-      return state //TODO -- update me
+      return state
     case DELETE_BEER_SUCCESS:
       return removeBeer(state, action.beerId)
     case DELETE_BEER_FAILURE:
-      return state //TODO -- update me
+      return state
     default:
       return state
   }
