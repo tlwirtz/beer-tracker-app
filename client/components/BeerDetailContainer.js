@@ -14,9 +14,9 @@ class BeerDetailContainer extends React.Component {
   constructor(props) {
     super(props)
 
-    this.filterBeerItems.bind(this)
-    this.calculateInventory.bind(this)
-    this.formatForGraph.bind(this)
+    this.filterBeerItems = this.filterBeerItems.bind(this)
+    this.calculateInventory = this.calculateInventory.bind(this)
+    this.formatForGraph = this.formatForGraph.bind(this)
   }
 
   filterBeerItems() {
