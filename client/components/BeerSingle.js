@@ -1,23 +1,24 @@
 import React from 'react'
+import { Link } from 'react-router'
 import classNames from 'classnames'
 import Inventory from './Inventory'
 import AddInventory from './AddInventory'
 import RemoveInventory from './RemoveInventory'
+import BeerDetailHeader from './BeerDetailHeader'
+import BeerTransactionList from './BeerTransactionList'
+import DeleteBeer from './DeleteBeer'
 
 class BeerSingle extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      hovering: false
+      hovering: false,
     }
-    this.beerClick = this.beerClick.bind(this)
     this.onMouseLeaveHandle = this.onMouseLeaveHandle.bind(this)
     this.onMouseEnterHandle = this.onMouseEnterHandle.bind(this)
     this.calculateInventory = this.calculateInventory.bind(this)
   }
-  beerClick() {
-    this.props.selectBeer(this.props.beer._id)
-  }
+
   onMouseLeaveHandle() {
     this.setState({hovering: false})
   }
@@ -30,63 +31,34 @@ class BeerSingle extends React.Component {
       .map(((trans) => trans.type === 'adjust-up' ? trans.qty : -(trans.qty)))
       .reduce((a, b) => a + b, 0)
   }
+
   render() {
     const { beer, beers } = this.props
-    const boxClass = classNames({
+    const flex = classNames('flex-container')
+    const flexItem = classNames('flex-item')
+    const flexItemMain = classNames({
       'hovering': this.state.hovering,
-      'beerSingleSelected': beers.selectedBeer === beer._id,
-      'box': true,
-      'beerListSingle': true
-    })
-
-    const levelMain = classNames({
-      'level': true
-    })
-
-    const levelItem = classNames({
-      'level-item': true,
-    })
-
-    const levelLeft = classNames({
-      'level-left': true
-    })
-
-    const levelRight = classNames({
-      'level-right': true
-    })
-
-    const beerSingleTitle = classNames({
-      'title': true
+      'flex-item-main': true,
     })
 
     return (
-      <div className="container">
-        <div onClick={this.beerClick}
-            onMouseEnter={this.onMouseEnterHandle}
-            onMouseLeave={this.onMouseLeaveHandle}
-            className={boxClass}
+      <Link to={`/beers/${beer._id}`}>
+        <li>
+          <div className={flex}>
+            <div onMouseEnter={this.onMouseEnterHandle}
+              onMouseLeave={this.onMouseLeaveHandle}
+              className={flexItemMain}
             >
-            <div className={levelMain}>
-              <div className={levelLeft}>
-                <div className={levelItem}>
-                  <h2 className={beerSingleTitle}>{this.props.beer.name}</h2>
-                  <p>{this.props.beer._id}</p>
+              <div className={flex}>
+                <BeerDetailHeader beer={beer} />
+                <div className={flexItem}>
+                  <Inventory qty={this.calculateInventory()} />
                 </div>
               </div>
-              <div className={levelRight}>
-                <div className={levelItem}>
-                  <RemoveInventory  beer={this.props.beer} {...this.props} />
-                  </div>
-                  <div className={levelItem}>
-                  <Inventory qty={this.calculateInventory()} />
-                  </div>
-                  <div className={levelItem}>
-                  <AddInventory  beer={this.props.beer} {...this.props} />
-                  </div>
-              </div>
             </div>
-        </div>
-      </div>
+          </div>
+        </li>
+      </Link>
     )
   }
 }

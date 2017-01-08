@@ -8,24 +8,24 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const nav = classNames('nav', 'has-shadow', 'beerTrackerNav')
-    const navLeft = classNames('nav-left')
-    const navRight = classNames('nav-right')
-    const navItem = classNames('is-tab', 'nav-item')
-    const navLogo = classNames('nav-item', 'is-brand', 'title', 'is-2')
-    const navLinks = classNames('nav-item')
 
-    //TODO -- consider changing this to a hero header / hero body / hero footer
-    return(
-      <nav className={nav}>
-        <div className={navLeft}>
-          <h1 className={navLogo}><Link to={'/'}>Beer Tracker</Link></h1>
+    const header = classNames('flex-header')
+    const headerItem = classNames('flex-header-item')
+    const headerRight = classNames('flex-header-item-right')
+    return (
+      <header>
+        <div className={header}>
+          <div className={headerItem}>
+            <h1>Beer Tracker</h1>
+          </div>
+          <div className={headerRight}>
+          <Link to={'/beers'}><h3>Beers</h3></Link>
+          </div>
+          <div className={headerRight}>
+          <Link to={'/devices'}><h3>Devices</h3></Link>
+          </div>
         </div>
-        <div className={navRight}>
-          <Link className={navLinks} to={'/beers'}>Beers</Link>
-          <Link className={navLinks} to={'/devices'}>Devices</Link>
-        </div>
-      </nav>
+      </header>
     )
   }
 }

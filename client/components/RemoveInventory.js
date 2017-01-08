@@ -12,11 +12,10 @@ class RemoveInventory extends React.Component {
   }
 
   render() {
-    const classes = classNames('level-item', 'subtitle', 'is-2', 'has-centered-text')
     const minusSymbol = classNames('beerTracker-red')
     return (
-      <div className={classes}>
-        <a onClick={this.handleClick} key={this.props.beer._id}>
+      <div>
+        <a href='#' onClick={this.handleClick} key={this.props.beer._id}>
           <h2 className={minusSymbol}>-</h2>
         </a>
       </div>

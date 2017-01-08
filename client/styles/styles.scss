@@ -1,47 +1,260 @@
-@import "../../node_modules/bulma/bulma";
+@import "normalize";
 @import "theme";
 
-.beerTrackerNav {
-  color: white;
-  background-color: $brand-color-darker;
+$body-background: white;
+$primary: $brand-color-darker;
 
-  h1 {
-    color: white;
-  }
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-size: 4em;
+  font-weight: 200;
+}
+
+a {
+  color: #424242;
+  text-decoration: none;
+}
+
+header {
+  display: block;
+  padding: 5px;
+  min-height: 50px;
+  background: #424242;
+  color: white;
+  font-weight: 200;
 
   a {
-    color: white;
+      color: white;
+      text-decoration: none;
+      &:hover {
+        color: white;
+      }
+    }
+}
+
+input[type=text] {
+    border: none;
+    outline: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    border-bottom: 1px solid #424242;
+}
+
+.add-beer {
+  background-color: #82DD86;
+   border: none;
+   color: white;
+   padding: 10px 26px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   cursor: pointer;
+   border-radius: 3px;
+   outline: none;
+   &:hover {
+     background-color: #4CAF50;
+   }
+}
+
+.flex-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-header-item {
+  flex: 1;
+  align-self: flex-start;
+
+  h1 {
+    font-weight: 200;
+  }
+
+  h2 {
+    font-weight: 200;
+  }
+}
+
+.flex-header-item-right {
+  flex: 0 0 10%;
+
+  h3 {
+    font-weight: 200;
+    color: #A2A2A2;
     &:hover {
       color: white;
     }
   }
 }
 
-.beerForm, .margin {
-  margin: 1em;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-.beerListSingle {
-  margin: 1em;
+li {
+  padding-bottom: 20px;
 }
 
-.beerTracker-green {
-  color: $brand-status-colors-ok !important;
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
 }
 
-.beerTracker-red {
-  color: $brand-status-colors-lowInventory !important;
+.flex-item {
+  flex: 1 1 10%;
+  align-self: center;
 }
 
-.hovering {
-  border: solid thin $brand-color-darker;
+.flex-title {
+  flex: 6 1 60%;
 }
 
-.beerSingleSelected {
-  border: solid thin $brand-color-darker;
-  color: $brand-color-darker;
+.flex-item-main {
+  flex: 6 1 50%;
+  max-width: 70%;
+  border: thin solid grey;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgb(222, 222, 222);
+  min-height: 100px;
+  padding-left: 10px;
+}
+
+.flex-inventory-container {
+  display: flex;
+  justify-content: space-around;
+  align-content: flex-end;
+  flex-direction: column;
+  border: none;
+  margin: 0;
+  padding-right: 10px;
+  text-align: right;
+}
+
+.inventory-headings {
+  font-size: 2em;
+  font-weight: 200;
+}
+
+.text-light {
+  font-weight: lighter
+}
+
+.padding-left {
+  padding-left: 1em;
+}
+
+.padding-top {
+  padding-top: 1em;
 }
 
 .lowInventory {
   color: $brand-status-colors-lowInventory;
 }
+
+.flex-detail-header-main {
+  flex: 6 1 50%;
+  max-width: 70%;
+  min-height: 100px;
+}
+
+.placeholder-box {
+  background-color: grey;
+}
+
+.inventory {
+  flex: auto;
+  text-align: center;
+  min-width: 3em;
+}
+
+.flex-auto {
+  flex: auto;
+  min-width: 0.75em;
+  min-height: 1em;
+}
+
+.graph-container, .transaction-container {
+    display: flex;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+}
+
+.graph {
+  flex: 0 0 40%;
+  min-height: 150px;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.transaction {
+  flex: 1 1 90%;
+  max-width: 90%;
+  min-height: 0px;
+}
+
+.hovering {
+  border-color: $brand-neutral-colors-3-t;
+  color: $brand-neutral-colors-3-t;
+}
+
+.beerTracker-green {
+  color: $brand-status-colors-ok;
+}
+
+.beerTracker-red {
+  color: $brand-status-colors-lowInventory;
+}
+
+.delete-button {
+  border: thin solid $brand-status-colors-lowInventory;
+  border-radius: 2px;
+  color: $brand-status-colors-lowInventory;
+  background-color: white;
+  padding: 0.75em;
+  cursor: pointer;
+  &:hover {
+    border-color: darken($brand-status-colors-lowInventory, 20%);
+  }
+}
+
+.delete-text-dark {
+    color: darken($brand-status-colors-lowInventory, 20%);
+}
+
+
+// TODO -- this doesn't work as expected
+// @media (max-width: 400px) {
+//   .flex-container {
+//     flex-direction: column;
+//   }
+//
+//   .graph {
+//     width: 100%;
+//   }
+//
+//   .flex-item-main {
+//     width: 100%
+//   }
+// }
