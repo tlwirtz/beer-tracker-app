@@ -1,0 +1,121 @@
+
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+
+// Unbranded Grommet purple
+// http://paletton.com/#uid=14m0u0kon++cB+MiX+Yub+WLPZB
+@function tint($color, $percent) {
+  @return mix(#ffffff, $color, $percent);
+}
+
+@function generate-tint($color) {
+  @return tint($color, 5%);
+}
+
+$brand-color: #8C50FF !default;
+$brand-neutral-colors-1: #0a64a0 !default;
+$brand-neutral-colors-1-t: #166ca5 !default;
+$brand-neutral-colors-1-a: generate-tint($brand-neutral-colors-1) !default;
+$brand-neutral-colors-2: #dc2878 !default;
+$brand-neutral-colors-2-t: #de337f !default;
+$brand-neutral-colors-2-a: generate-tint($brand-neutral-colors-2) !default;
+$brand-neutral-colors-3: #501eb4 !default;
+$brand-neutral-colors-3-t: #5929b8 !default;
+$brand-neutral-colors-3-a: generate-tint($brand-neutral-colors-3) !default;
+$brand-accent-colors-1: #c3a4fe !default;
+$brand-accent-colors-2: #00cceb !default;
+$brand-accent-colors-2-t: #0dcfec !default;
+$brand-accent-colors-2-a: generate-tint($brand-accent-colors-2);
+$brand-accent-colors-3: #ff7d28 !default;
+$brand-accent-colors-3-t: #ff8433 !default;
+$brand-accent-colors-3-a: generate-tint($brand-accent-colors-3)  !default;
+$brand-link-color: #8C50FF !default;
+$brand-status-colors-critical: #FF856B;
+$brand-status-colors-error: #FF856B;
+$brand-status-colors-warning: #FFB86B;
+$brand-status-colors-ok: #4EB976;
+$brand-status-colors-unknown: #a8a8a8;
+$brand-status-colors-disabled: #a8a8a8;
+$brand-status-colors-lowInventory: #ff6666;
+$brand-grey-colors-1: #333333 !default;
+$brand-grey-colors-2: #444444 !default;
+$brand-grey-colors-3: #555555 !default;
+$brand-grey-colors-4: #666666 !default;
+$brand-light-colors-1: #ffffff !default;
+$brand-light-colors-2: #f5f5f5 !default;
+
+$brand-color-lighter: lighten($brand-color, 23%) !default;
+$brand-color-darker: darken($brand-color, 9%) !default;
+
+$text-color: #333 !default;
+$secondary-text-color: #666 !default; // meets AA accessibility
+$hover-text-color: #000 !default;
+$placeholder-text-color: #aaa;
+$colored-text-color: rgba(255, 255, 255, 0.85); //#dbdbdb;
+$active-colored-text-color: #fff;
+$inactive-colored-text-color: rgba(255, 255, 255, 0.7);
+$link-color: $brand-link-color !default;
+$link-hover-color: $brand-color-darker !default;
+// 63 was empirically determined based on HPE critical and warning colors
+$colored-text-color-lightness-threshold: 63 !default;
+
+$background-color: #fff;
+$secondary-background-color: #f5f5f5;
+$hover-background-color: rgba(#ddd, 0.5);
+$colored-active-background-color: rgba(0, 0, 0, 0.15);
+$colored-hover-background-color: rgba(0, 0, 0, 0.1);
+$selected-background-color: $brand-color-lighter !default;
+$selected-text-color: $text-color !default;
+$selected-primary-background-color: $brand-color !default;
+$selected-primary-text-color: $colored-text-color !default;
+
+$border-color: rgba(0, 0, 0, 0.15);
+$strong-border-color: #000;
+$colored-border-color: rgba(255, 255, 255, 0.5) !default;
+
+$heading-text-color: $text-color !default;
+$paragraph-text-color: $secondary-text-color !default;
+
+// Control Icons
+
+$icon-color: #666; // meets AA accessibility
+$active-icon-color: #000;
+$disabled-icon-color: #ccc;
+$colored-icon-color: rgba(255, 255, 255, 0.7); //#dbdbdb;
+$active-colored-icon-color: #fff;
+$icon-badge-text-color: $text-color;
+
+$unset-color: #ddd !default;
+$control-background-color: rgba($text-color, 0.2) !default;
+
+$meter-color: $brand-color !default;
+$meter-background-color: rgba(0, 0, 0, 0.1) !default;
+$colored-meter-background-color: rgba(#fff, 0.1) !default;
+$threshold-color: rgba($text-color, 0.2) !default;
+$cursor-color: $text-color !default;
+$toast-background-color: rgba(#eee, 0.9) !default;
+
+// Controls
+
+$control-brand-color: $brand-color !default;
+
+$button-border-color: $brand-color !default;
+$button-text-color: $text-color !default;
+$button-secondary-color: rgba(#333, 0.6) !default;
+$button-drop-shadow-color: rgba(170, 170, 170, 0.5) !default;
+$button-colored-border-color: rgba(255, 255, 255, 0.7) !default;
+
+$layer-overlay-background-color: rgba(0, 0, 0, 0.5);
+$layer-background-color: #fff !default; // rgba($background-color, 0.95); ///inherit; //rgba(255, 255, 255, 0.95);
+$layer-border: none !default; // 1px solid $brand-color;
+$layer-box-shadow: none !default; // 0px 2px 4px rgba(0, 0, 0, 0.3) !default;
+$drop-background: rgba(#f8f8f8, 0.95) !default;
+$drop-border: none !default; // 1px solid $border-color !default;
+$drop-box-shadow: none !default; // 0px 2px 4px rgba(0, 0, 0, 0.3) !default;
+$form-field-background-color: #fff !default;
+$drop-background-color: rgba(255, 255, 255, 0.9);
+$header-background-color: rgba(255, 255, 255, 0.9);
+$footer-background-color: rgba(255, 255, 255, 0.9);
+$active-background-color: rgba(255, 255, 255, 0.8);
+$sort-placeholder-background-color: rgba(0, 0, 255, 0.1); // TODO: recolor
+
+$inverse-color: #fff;

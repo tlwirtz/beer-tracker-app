@@ -2,7 +2,6 @@
 
 const path = require('path');
 const webpack = require('webpack')
-const ExtractText = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -17,7 +16,6 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractText('bundle.css'),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({'process.env.BEER_TRACKER_API': '"https://beer-tracker-api.herokuapp.com"'})
   ],
@@ -26,12 +24,19 @@ module.exports = {
       {
         test: /\.js$/,
         loaders: ['babel'],
+        excldue: /node_modules/,
         include: path.join(__dirname, 'client')
       },
       {
         test: /\.scss$/,
-        loader: ExtractText.extract('style', 'css!postcss!sass!')
+        loader: 'style!css!sass!'
       },
+    ]
+  },
+  sassLoader: {
+    includePaths:[
+      './node_modules',
+      './client/styles'
     ]
   }
 }

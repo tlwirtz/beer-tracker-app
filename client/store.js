@@ -1,23 +1,17 @@
+import './styles/styles.scss'
+
 import { createStore, compose, applyMiddleware } from 'redux'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { browserHistory } from 'react-router'
 import thunkMiddleware from 'redux-thunk'
 import rootReducer from './reducers/index';
+import Immutable from 'immutable'
 
 const defaultState = {
-    beers: {
+    beers: Immutable.Map({
       fetchingBeers: false,
-      items: [
-      {
-        name: 'beer one',
-        _id: 120921391098123
-      },
-      {
-        name: 'beer two',
-        _id: 19083029840
-      }
-    ]
-  }
+      items: []
+  })
 }
 
 const middleware = applyMiddleware(thunkMiddleware)

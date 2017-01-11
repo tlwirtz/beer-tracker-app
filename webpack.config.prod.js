@@ -1,20 +1,19 @@
-
-
 const path = require('path')
 const webpack = require('webpack')
-const ExtractText = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
-  entry: ['./client/beerTracker'],
+  entry: [
+    './client/beerTracker'
+  ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'build', 'static'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
   plugins: [
+    new webpack.DefinePlugin({'process.env.BEER_TRACKER_API': '"https://beer-tracker-api.herokuapp.com"'}),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new ExtractText('bundle.css'),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': '\'production\''
@@ -26,17 +25,24 @@ module.exports = {
       }
     })
   ],
-  module:{
+  module: {
     loaders: [
-    {
-      test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, 'client')
-    },
-    {
-      test: /\.scss$/,
-      loader: ExtractText.extract('style', 'css!postcss!sass!')
-    }
-  ]
+      {
+        test: /\.js$/,
+        loaders: ['babel'],
+        excldue: /node_modules/,
+        include: path.join(__dirname, 'client')
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style!css!sass!'
+      },
+    ]
+  },
+  sassLoader: {
+    includePaths:[
+      './node_modules',
+      './client/styles'
+    ]
   }
 }

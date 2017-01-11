@@ -1,15 +1,26 @@
+import NavBar from './NavBar'
+
 import React from 'react';
 import { Link } from 'react-router';
+import classNames from 'classnames';
 
-const Main = React.createClass({
+class Main extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
+    const main = classNames('main')
+    const container = classNames('container')
     return (
       <div>
-        <h1>BEER TRACKER</h1>
-        {React.cloneElement(this.props.children, this.props)}
+        <NavBar />
+        <div className={main}>
+          {React.cloneElement(this.props.children, this.props)}
+        </div>
       </div>
     )
   }
-});
+}
 
 export default Main
