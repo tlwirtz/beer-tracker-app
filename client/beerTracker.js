@@ -22,7 +22,7 @@ const router = (
       <IndexRoute component={ManageBeers}></IndexRoute>
       <Route path="beers" component={ManageBeers}></Route>
       <Route path="/beers/:beerId" component={BeerDetailContainer}></Route>
-      <Route path="devices" component={ManageDevices}></Route>
+      {/* <Route path="devices" component={ManageDevices}></Route> */}
     </Route>
     </Router>
   </Provider>

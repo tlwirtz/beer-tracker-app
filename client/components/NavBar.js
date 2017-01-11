@@ -21,9 +21,9 @@ class NavBar extends React.Component {
           <div className={headerRight}>
           <Link to={'/beers'}><h3>Beers</h3></Link>
           </div>
-          <div className={headerRight}>
+          {/* <div className={headerRight}>
           <Link to={'/devices'}><h3>Devices</h3></Link>
-          </div>
+          </div> */}
         </div>
       </header>
     )
